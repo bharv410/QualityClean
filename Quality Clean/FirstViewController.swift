@@ -31,11 +31,21 @@ class FirstViewController: UIViewController {
                  
                                             
             for actualProperties in thisUserObject as NSDictionary{
-                if let text = actualProperties.value as? String {
-                    // obj is a string array. Do something with stringArray
-                    self.jobsLabel.text = text as! String
-
+                if let keyTitle = actualProperties.key as? String {
+                    if keyTitle == "display_name"{
+                        if let text = actualProperties.value as? String {
+                            // obj is a string array. Do something with stringArray
+                            self.jobsLabel.text = text as! String
+                            
+                        }
+                    }
+                    
                 }
+                
+                
+                
+                
+                
                 else {
                     // obj is not a string array
                 }

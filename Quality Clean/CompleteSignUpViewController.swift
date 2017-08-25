@@ -76,6 +76,10 @@ class CompleteSignUpViewController : UIViewController {
 
         userRef.child("birthdate").setValue(monthDayTExtView.text){ (error, ref) -> Void in
             print("check")
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+            self.present(vc!, animated: true, completion: nil)
+            
         }
         
     }
