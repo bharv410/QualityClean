@@ -9,14 +9,18 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import AVKit
+import AVFoundation
 
 class FirstViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
     var ref: DatabaseReference!
     @IBOutlet var user = Auth.auth().currentUser
-
+    var player: AVPlayer!
+    var avpController = AVPlayerViewController()
     @IBOutlet weak var jobsLabel: UILabel!
+    @IBOutlet weak var vidViewHolder: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,37 +28,40 @@ class FirstViewController: UIViewController {
 
         let currentUserRef = ref.child("users").queryOrdered(byChild: "email")
                                         .queryEqual(toValue: user?.email).observeSingleEvent(of: .value, with: { (snapshot) in
-            
-        if let value = snapshot.value as? NSDictionary{
-            
+            if let value = snapshot.value as? NSDictionary{
             let thisUserObject = value.allValues.first as! NSDictionary
-            
             for actualProperties in thisUserObject as NSDictionary{
                 if let keyTitle = actualProperties.key as? String {
+                    
+                    
+                    
                     if keyTitle == "display_name"{
                         if let text = actualProperties.value as? String {
-                            // obj is a string array. Do something with stringArray
                             self.jobsLabel.text = text as! String
-                            
                         }
                     }
                     
-                }else {
-                    // obj is not a string array
+                    if keyTitle == "video"{
+                    
+                        print(actualProperties.value)
+                        let url = URL(string:actualProperties.value as! String)
+//                        let url = NSURL(actualProperties.vaslue as! String)
+                        self.player = AVPlayer(url: url!)
+                        self.avpController = AVPlayerViewController()
+                        self.avpController.player = self.player
+                        self.avpController.view.frame = self.vidViewHolder.frame
+                        self.addChildViewController(self.avpController)
+                        self.view.addSubview(self.avpController.view)
+                    
+                    }
                 }
-                print(actualProperties.key)
-                print("    is     ")
-                print(actualProperties.value)
             }
         }else{
             self.logoutUser()
         }
         
     })
-        
-            
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -64,20 +71,6 @@ class FirstViewController: UIViewController {
     @IBAction func addItemToDB(_ sender: Any) {
         
         self.ref.child("items").childByAutoId().setValue(["text": textField.text])
-        
-        
-        
-//        // Get a reference to the storage service using the default Firebase App
-//        let storage = Storage.storage()
-//        
-//        // Create a storage reference from our storage service
-//        let storageRef = storage.reference()
-//        
-//        let newItemRef = storageRef.child("items")
-//        
-//        let firebaseNewItem = newItemRef.childByAutoId()
-//
-//        firebaseNewItem.setValue(textField.text)
         
     }
 
@@ -89,13 +82,7 @@ class FirstViewController: UIViewController {
     func logoutUser() {
         // unauth() is the logout method for the current user.
         
-        //NetService.dataService.CURRENT_USER_REF.unauth()
-        
-        // Remove the user's uid from storage.
-        
         UserDefaults.standard.setValue(nil, forKey: "uid")
-        
-        // Head back to Login!
         
         let loginViewController = self.storyboard!.instantiateViewController(withIdentifier: "Login")
         UIApplication.shared.keyWindow?.rootViewController = loginViewController

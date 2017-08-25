@@ -108,31 +108,33 @@ class CompleteSignUpViewController : UIViewController {
             do {
                 if let url = videoURL {
                     let vidData = try Data(contentsOf:url)
-                    //upload vid data to server
-                
-                    // Get a reference to the storage service using the default Firebase App
-                    let storage = Storage.storage()
+
                     
-                    // Create a storage reference from our storage service
-                    let storageRef = storage.reference()
+                    let videosRef = Storage.storage().reference().child("videos")
                     
-                    let videosRef = storageRef.child("videos")
+                    let fileName = (user?.email)! + ".mp4"
+                    let vidRef = videosRef.child(fileName)
                     
-                    let vidRef = videosRef.child(String(describing: user?.email))
-                    
-                    // Upload the file to the path "images/rivers.jpg"
+
+                    print("uploading")
                     let uploadTask = vidRef.putFile(from: videoURL!, metadata: nil) { metadata, error in
                         if let error = error {
                             // Uh-oh, an error occurred!
                             print("video error")
                         } else {
-                            // Metadata contains file metadata such as size, content-type, and download URL.
-                            let downloadURL = metadata!.downloadURL()
-                            
-                            self.userRef.child("video").setValue((downloadURL?.path)!){ (error, ref) -> Void in
-                                self.dismiss(animated: true) {
-                                    
-                                    print(downloadURL?.path)
+                            for individualurl in (metadata?.downloadURLs)! {
+                                print("benmark")
+                                print(individualurl.path)
+print("absolut")
+                                print(individualurl.absoluteURL)
+
+                                if individualurl.absoluteString.range(of:"https") != nil{
+                                self.userRef.child("video").setValue(individualurl.absoluteString){ (error, ref) -> Void in
+                                    self.dismiss(animated: true) {
+                                        
+                                        print(individualurl.path)
+                                    }
+                                    }
                                 }
                             }
                         }

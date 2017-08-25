@@ -66,19 +66,30 @@
                                 <rect key="frame" x="147" y="134" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNn-Mb-tKf">
+                                <rect key="frame" x="16" y="388" width="343" height="128"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="6Iz-hX-KfB"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="bNn-Mb-tKf" firstAttribute="top" secondItem="A5M-7J-77L" secondAttribute="bottom" constant="8" id="4dm-Sh-oLP"/>
                             <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
+                            <constraint firstItem="bNn-Mb-tKf" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="Dhb-lf-XsP"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstItem="bNn-Mb-tKf" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="fUa-c4-pLF"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="jobsLabel" destination="KQZ-1w-vlD" id="7ve-V0-FVV"/>
                         <outlet property="textField" destination="UIL-UO-QPc" id="ELw-NW-M8Z"/>
+                        <outlet property="vidViewHolder" destination="bNn-Mb-tKf" id="BKF-lm-61r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
