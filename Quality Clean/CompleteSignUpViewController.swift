@@ -76,26 +76,26 @@ class CompleteSignUpViewController : UIViewController {
     
     @IBAction func registerClick(_ sender: Any) {
         openImgPicker()
-//        registerButton.isEnabled = false
-//        
-//        userRef.child("email").setValue(user?.email)
-//        userRef.child("display_name").setValue(fullnameTextView.text)
-//        userRef.child("number").setValue(1234)
-//        userRef.child("bio").setValue(bioTextView.text)
-//
-//        userRef.child("birthdate").setValue(monthDayTExtView.text){ (error, ref) -> Void in
-//            print("check")
-//            
-//            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-//            self.present(vc!, animated: true, completion: nil)
-//            
-//        }
+
         
     }
     
     
-    func uploadVid(){
+    func register(){
+                registerButton.isEnabled = false
         
+                userRef.child("email").setValue(user?.email)
+                userRef.child("display_name").setValue(fullnameTextView.text)
+                userRef.child("number").setValue(1234)
+                userRef.child("bio").setValue(bioTextView.text)
+        
+                userRef.child("birthdate").setValue(monthDayTExtView.text){ (error, ref) -> Void in
+                    print("check")
+        
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                    self.present(vc!, animated: true, completion: nil)
+                    
+                }
         
     }
     
@@ -115,17 +115,20 @@ class CompleteSignUpViewController : UIViewController {
             print("videoURL:\(String(describing: videoURL))")
             
 
-        do {
-                if let videoURL = videoURL {
-                    let vidData = try Data(contentsOf:videoURL)
-                    userRef.child("videoData").setValue(vidData)
-                    
-                    self.dismiss(animated: true, completion: nil)
-
+            self.dismiss(animated: true) {
+                self.register()
             }
-            } catch let error {
-                debugPrint("ERRor ::\(error)")
-            }
+//        do {
+//                if let videoURL = videoURL {
+//                    let vidData = try Data(contentsOf:videoURL)
+//                    userRef.child("videoData").setValue(vidData)
+//                    
+//                    self.dismiss(animated: true, completion: nil)
+//
+//            }
+//            } catch let error {
+//                debugPrint("ERRor ::\(error)")
+//            }
             
         }
     

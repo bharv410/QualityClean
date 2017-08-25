@@ -25,11 +25,10 @@ class FirstViewController: UIViewController {
         let currentUserRef = ref.child("users").queryOrdered(byChild: "email")
                                         .queryEqual(toValue: user?.email).observeSingleEvent(of: .value, with: { (snapshot) in
             
-            let value = snapshot.value as? NSDictionary
+        if let value = snapshot.value as? NSDictionary{
             
-            let thisUserObject = value?.allValues.first as! NSDictionary
-                 
-                                            
+            let thisUserObject = value.allValues.first as! NSDictionary
+            
             for actualProperties in thisUserObject as NSDictionary{
                 if let keyTitle = actualProperties.key as? String {
                     if keyTitle == "display_name"{
@@ -40,22 +39,18 @@ class FirstViewController: UIViewController {
                         }
                     }
                     
-                }
-                
-                
-                
-                
-                
-                else {
+                }else {
                     // obj is not a string array
                 }
-                
                 print(actualProperties.key)
                 print("    is     ")
                 print(actualProperties.value)
             }
-                                            
-        })
+        }else{
+            self.logoutUser()
+        }
+        
+    })
         
             
         // Do any additional setup after loading the view, typically from a nib.
@@ -87,7 +82,11 @@ class FirstViewController: UIViewController {
     }
 
     @IBAction func logoutUser(_ sender: Any) {
+        logoutUser()
         
+    }
+    
+    func logoutUser() {
         // unauth() is the logout method for the current user.
         
         //NetService.dataService.CURRENT_USER_REF.unauth()
@@ -100,8 +99,6 @@ class FirstViewController: UIViewController {
         
         let loginViewController = self.storyboard!.instantiateViewController(withIdentifier: "Login")
         UIApplication.shared.keyWindow?.rootViewController = loginViewController
-        
     }
-    
 }
 
