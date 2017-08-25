@@ -12,11 +12,17 @@ import FirebaseAuth
 
 class SignUpViewController: UIViewController {
 
-    //Outlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    //Sign Up Action for email
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if UserDefaults.standard.value(forKey: "uid") != nil{
+            self.performSegue(withIdentifier: "AlreadyLoggedIn", sender: nil)
+        }
+    }
+    
     @IBAction func createAccountAction(_ sender: AnyObject) {
         if emailTextField.text == "" {
             let alertController = UIAlertController(title: "Error", message: "Please enter your email and password", preferredStyle: .alert)
@@ -31,11 +37,7 @@ class SignUpViewController: UIViewController {
                 
                 if error == nil {
                     print("You have successfully signed up")
-                    //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
-                    
-                    // Store the uid for future access - handy!
                     UserDefaults.standard.setValue(user?.uid, forKey: "uid")
-                    
                     
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "CompleteSignUp")
                     self.present(vc!, animated: true, completion: nil)
@@ -51,19 +53,5 @@ class SignUpViewController: UIViewController {
             }
         }
     }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // If we have the uid stored, the user is already logger in - no need to sign in again!
-        
-        if UserDefaults.standard.value(forKey: "uid") != nil{
-            
-            
-            self.performSegue(withIdentifier: "AlreadyLoggedIn", sender: nil)
-        }
-    }
-    
 }
 

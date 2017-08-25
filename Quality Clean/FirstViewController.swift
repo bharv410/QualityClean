@@ -1,3 +1,4 @@
+
 //
 //  FirstViewController.swift
 //  Quality Clean
@@ -15,12 +16,16 @@ import AVFoundation
 class FirstViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
-    var ref: DatabaseReference!
     @IBOutlet var user = Auth.auth().currentUser
-    var player: AVPlayer!
-    var avpController = AVPlayerViewController()
     @IBOutlet weak var jobsLabel: UILabel!
     @IBOutlet weak var vidViewHolder: UIView!
+    
+
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    var ref: DatabaseReference!
+    var player: AVPlayer!
+    var avpController = AVPlayerViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +33,9 @@ class FirstViewController: UIViewController {
 
         let currentUserRef = ref.child("users").queryOrdered(byChild: "email")
                                         .queryEqual(toValue: user?.email).observeSingleEvent(of: .value, with: { (snapshot) in
+                                            
             if let value = snapshot.value as? NSDictionary{
+                //GOT USER OBJECT
             let thisUserObject = value.allValues.first as! NSDictionary
             for actualProperties in thisUserObject as NSDictionary{
                 if let keyTitle = actualProperties.key as? String {
@@ -37,22 +44,26 @@ class FirstViewController: UIViewController {
                     
                     if keyTitle == "display_name"{
                         if let text = actualProperties.value as? String {
-                            self.jobsLabel.text = text as! String
+                            self.jobsLabel.text = text 
                         }
                     }
                     
                     if keyTitle == "video"{
-                    
-                        print(actualProperties.value)
                         let url = URL(string:actualProperties.value as! String)
-//                        let url = NSURL(actualProperties.vaslue as! String)
                         self.player = AVPlayer(url: url!)
                         self.avpController = AVPlayerViewController()
                         self.avpController.player = self.player
                         self.avpController.view.frame = self.vidViewHolder.frame
                         self.addChildViewController(self.avpController)
                         self.view.addSubview(self.avpController.view)
+                        
+                    }
                     
+                    if keyTitle == "image"{
+                        let url = URL(string:actualProperties.value as! String)
+                        
+                        self.profileImageView.downloadedFrom(url: url!)
+                        
                     }
                 }
             }
@@ -80,12 +91,57 @@ class FirstViewController: UIViewController {
     }
     
     func logoutUser() {
-        // unauth() is the logout method for the current user.
-        
+        do{
         UserDefaults.standard.setValue(nil, forKey: "uid")
+        }catch {
+        print("error logging out")
+        }
         
         let loginViewController = self.storyboard!.instantiateViewController(withIdentifier: "Login")
         UIApplication.shared.keyWindow?.rootViewController = loginViewController
+    }
+    
+    
+    func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+        URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            completion(data, response, error)
+            }.resume()
+    }
+    
+    func downloadImage(url: URL) {
+        print("Download Started")
+        getDataFromUrl(url: url) { (data, response, error)  in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() { () -> Void in
+                self.profileImageView.image = UIImage(data: data)
+                print("updated photo")
+            }
+        }
+    }
+    
+}
+
+extension UIImageView {
+    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() { () -> Void in
+                self.image = image
+            }
+            }.resume()
+    }
+    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        downloadedFrom(url: url, contentMode: mode)
     }
 }
 

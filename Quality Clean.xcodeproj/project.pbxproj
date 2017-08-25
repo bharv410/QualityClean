@@ -72,6 +72,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		69752EBD1F50C84C000B7859 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				69F7EB4C1F5006A90098BF47 /* avatar-empty.png */,
+				69F7EB4D1F5006A90098BF47 /* avatar-empty@2x.png */,
+				69F7EB4E1F5006A90098BF47 /* avatar-overlay.png */,
+				69F7EB4F1F5006A90098BF47 /* avatar-overlay@2x.png */,
+				699CCA371F4FF1610089D45B /* owl.jpg */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		69DAAF501F4F2B46006E7CE3 = {
 			isa = PBXGroup;
 			children = (
@@ -94,11 +106,7 @@
 		69DAAF5B1F4F2B46006E7CE3 /* Quality Clean */ = {
 			isa = PBXGroup;
 			children = (
-				69F7EB4C1F5006A90098BF47 /* avatar-empty.png */,
-				69F7EB4D1F5006A90098BF47 /* avatar-empty@2x.png */,
-				69F7EB4E1F5006A90098BF47 /* avatar-overlay.png */,
-				69F7EB4F1F5006A90098BF47 /* avatar-overlay@2x.png */,
-				699CCA371F4FF1610089D45B /* owl.jpg */,
+				69752EBD1F50C84C000B7859 /* images */,
 				69DAAF701F4F3333006E7CE3 /* SignUpViewController.swift */,
 				69DAAF5C1F4F2B46006E7CE3 /* AppDelegate.swift */,
 				69DAAF5E1F4F2B46006E7CE3 /* FirstViewController.swift */,
