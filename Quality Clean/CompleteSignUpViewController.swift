@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import MobileCoreServices
-
+import FirebaseStorage
 
 class CompleteSignUpViewController : UIViewController {
     
@@ -51,33 +51,24 @@ class CompleteSignUpViewController : UIViewController {
         userRef = self.ref.child("users").childByAutoId()
 
         if (user != nil) {
-
-            print(user?.email)
-            
-            print(user?.uid)
-            
             emailTextView.text = user?.email
             emailTextView.allowsEditingTextAttributes = false
         }
-        
-        sleep(4)
-
     }
     
     
     override func viewDidLayoutSubviews() {
     
-        
-        
         //self.scrollView.contentSize = self.contentView.bounds.size*2
-        
     }
     
-    
-    @IBAction func registerClick(_ sender: Any) {
+    @IBAction func chooseVide(_ sender: Any) {
         openImgPicker()
 
-        
+    }
+    
+    @IBAction func registerClick(_ sender: Any) {
+        register()
     }
     
     
@@ -111,24 +102,45 @@ class CompleteSignUpViewController : UIViewController {
 
     extension CompleteSignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-            let videoURL = info[UIImagePickerControllerMediaURL] as? URL
-            print("videoURL:\(String(describing: videoURL))")
             
-
-            self.dismiss(animated: true) {
-                self.register()
+            let videoURL = info[UIImagePickerControllerMediaURL] as? URL
+            
+            do {
+                if let url = videoURL {
+                    let vidData = try Data(contentsOf:url)
+                    //upload vid data to server
+                
+                    // Get a reference to the storage service using the default Firebase App
+                    let storage = Storage.storage()
+                    
+                    // Create a storage reference from our storage service
+                    let storageRef = storage.reference()
+                    
+                    let videosRef = storageRef.child("videos")
+                    
+                    let vidRef = videosRef.child(String(describing: user?.email))
+                    
+                    // Upload the file to the path "images/rivers.jpg"
+                    let uploadTask = vidRef.putFile(from: videoURL!, metadata: nil) { metadata, error in
+                        if let error = error {
+                            // Uh-oh, an error occurred!
+                            print("video error")
+                        } else {
+                            // Metadata contains file metadata such as size, content-type, and download URL.
+                            let downloadURL = metadata!.downloadURL()
+                            
+                            self.userRef.child("video").setValue((downloadURL?.path)!){ (error, ref) -> Void in
+                                self.dismiss(animated: true) {
+                                    
+                                    print(downloadURL?.path)
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch let error {
+                debugPrint("ERRor ::\(error)")
             }
-//        do {
-//                if let videoURL = videoURL {
-//                    let vidData = try Data(contentsOf:videoURL)
-//                    userRef.child("videoData").setValue(vidData)
-//                    
-//                    self.dismiss(animated: true, completion: nil)
-//
-//            }
-//            } catch let error {
-//                debugPrint("ERRor ::\(error)")
-//            }
             
         }
     

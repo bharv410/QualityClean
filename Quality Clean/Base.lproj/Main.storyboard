@@ -177,8 +177,8 @@
                                                             <action selector="registerClick:" destination="K3c-8V-xMi" eventType="touchUpInside" id="kOJ-Ou-h40"/>
                                                         </connections>
                                                     </button>
-                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Rxa-QM-hzN">
-                                                        <rect key="frame" x="129" y="531" width="117" height="29"/>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Rxa-QM-hzN">
+                                                        <rect key="frame" x="47" y="529" width="117" height="29"/>
                                                         <segments>
                                                             <segment title="Male"/>
                                                             <segment title="Female"/>
@@ -245,10 +245,18 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BB4-ea-Ml1">
+                                                        <rect key="frame" x="231" y="527" width="96" height="30"/>
+                                                        <state key="normal" title="Choose Video"/>
+                                                        <connections>
+                                                            <action selector="chooseVide:" destination="K3c-8V-xMi" eventType="touchUpInside" id="lMR-2U-WVz"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="NW9-dP-77c" firstAttribute="top" secondItem="b7x-rm-ro4" secondAttribute="bottom" constant="18" id="1ho-dx-gqY"/>
+                                                    <constraint firstAttribute="trailing" secondItem="BB4-ea-Ml1" secondAttribute="trailing" constant="48" id="251-hV-wJI"/>
                                                     <constraint firstItem="HP9-06-ReQ" firstAttribute="centerX" secondItem="Buu-6F-Bmv" secondAttribute="centerX" id="2U1-Yd-EPu"/>
                                                     <constraint firstItem="HP9-06-ReQ" firstAttribute="leading" secondItem="Buu-6F-Bmv" secondAttribute="leading" constant="47" id="3O9-RM-cKD"/>
                                                     <constraint firstItem="iS4-m5-D6o" firstAttribute="leading" secondItem="TxD-G0-4yG" secondAttribute="leading" id="3WC-un-teh"/>
@@ -257,6 +265,7 @@
                                                     <constraint firstItem="pOm-CH-Dhr" firstAttribute="top" secondItem="wfq-3r-NvW" secondAttribute="bottom" constant="24" id="6dJ-M1-iB2"/>
                                                     <constraint firstItem="iS4-m5-D6o" firstAttribute="top" secondItem="kQc-Mi-5Km" secondAttribute="bottom" constant="17" id="6sq-71-Wh9"/>
                                                     <constraint firstItem="pOm-CH-Dhr" firstAttribute="top" secondItem="wfq-3r-NvW" secondAttribute="bottom" constant="24" id="76a-mH-Tby"/>
+                                                    <constraint firstItem="BB4-ea-Ml1" firstAttribute="top" secondItem="iS4-m5-D6o" secondAttribute="bottom" constant="6" id="8uv-cB-Ovc"/>
                                                     <constraint firstItem="wfq-3r-NvW" firstAttribute="top" secondItem="NW9-dP-77c" secondAttribute="bottom" constant="18" id="AFZ-ae-Tts"/>
                                                     <constraint firstItem="iS4-m5-D6o" firstAttribute="top" secondItem="kQc-Mi-5Km" secondAttribute="bottom" constant="17" id="AXG-M7-Lf1"/>
                                                     <constraint firstItem="kQc-Mi-5Km" firstAttribute="top" secondItem="pOm-CH-Dhr" secondAttribute="bottom" constant="20" id="CZH-P0-MxB"/>
@@ -271,6 +280,7 @@
                                                     <constraint firstItem="cSF-j1-NL0" firstAttribute="centerX" secondItem="Buu-6F-Bmv" secondAttribute="centerX" id="PZb-uM-ryy"/>
                                                     <constraint firstItem="3K7-h4-7hC" firstAttribute="centerX" secondItem="Buu-6F-Bmv" secondAttribute="centerX" id="QFY-aJ-3pj"/>
                                                     <constraint firstItem="cSF-j1-NL0" firstAttribute="top" secondItem="Buu-6F-Bmv" secondAttribute="top" constant="23" id="R4l-Rc-Vy9"/>
+                                                    <constraint firstItem="TxD-G0-4yG" firstAttribute="top" secondItem="BB4-ea-Ml1" secondAttribute="bottom" constant="8" id="Ubf-ZU-sQL"/>
                                                     <constraint firstItem="b7x-rm-ro4" firstAttribute="top" secondItem="3K7-h4-7hC" secondAttribute="bottom" constant="18" id="WDJ-w8-kWY"/>
                                                     <constraint firstAttribute="width" constant="375" id="Wcm-H7-2RQ"/>
                                                     <constraint firstItem="Rxa-QM-hzN" firstAttribute="top" secondItem="iS4-m5-D6o" secondAttribute="bottom" constant="10" id="bJt-rV-D5m"/>
