@@ -21,6 +21,10 @@
 		69DAAF691F4F2B46006E7CE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69DAAF671F4F2B46006E7CE3 /* LaunchScreen.storyboard */; };
 		69DAAF711F4F3333006E7CE3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DAAF701F4F3333006E7CE3 /* SignUpViewController.swift */; };
 		69DAAF731F4F3385006E7CE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69DAAF721F4F3385006E7CE3 /* GoogleService-Info.plist */; };
+		69F7EB501F5006A90098BF47 /* avatar-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F7EB4C1F5006A90098BF47 /* avatar-empty.png */; };
+		69F7EB511F5006A90098BF47 /* avatar-empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F7EB4D1F5006A90098BF47 /* avatar-empty@2x.png */; };
+		69F7EB521F5006A90098BF47 /* avatar-overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F7EB4E1F5006A90098BF47 /* avatar-overlay.png */; };
+		69F7EB531F5006A90098BF47 /* avatar-overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F7EB4F1F5006A90098BF47 /* avatar-overlay@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,10 @@
 		69DAAF6A1F4F2B46006E7CE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69DAAF701F4F3333006E7CE3 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		69DAAF721F4F3385006E7CE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		69F7EB4C1F5006A90098BF47 /* avatar-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-empty.png"; sourceTree = "<group>"; };
+		69F7EB4D1F5006A90098BF47 /* avatar-empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-empty@2x.png"; sourceTree = "<group>"; };
+		69F7EB4E1F5006A90098BF47 /* avatar-overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-overlay.png"; sourceTree = "<group>"; };
+		69F7EB4F1F5006A90098BF47 /* avatar-overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-overlay@2x.png"; sourceTree = "<group>"; };
 		6A60A0633CC6975A39E0478E /* Pods-Quality Clean.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quality Clean.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quality Clean/Pods-Quality Clean.debug.xcconfig"; sourceTree = "<group>"; };
 		9743DBF875DC5A2F22730220 /* Pods-Quality Clean.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quality Clean.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quality Clean/Pods-Quality Clean.release.xcconfig"; sourceTree = "<group>"; };
 		9CBC8E16BDFBE897656049B2 /* Pods_Quality_Clean.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quality_Clean.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +94,10 @@
 		69DAAF5B1F4F2B46006E7CE3 /* Quality Clean */ = {
 			isa = PBXGroup;
 			children = (
+				69F7EB4C1F5006A90098BF47 /* avatar-empty.png */,
+				69F7EB4D1F5006A90098BF47 /* avatar-empty@2x.png */,
+				69F7EB4E1F5006A90098BF47 /* avatar-overlay.png */,
+				69F7EB4F1F5006A90098BF47 /* avatar-overlay@2x.png */,
 				699CCA371F4FF1610089D45B /* owl.jpg */,
 				69DAAF701F4F3333006E7CE3 /* SignUpViewController.swift */,
 				69DAAF5C1F4F2B46006E7CE3 /* AppDelegate.swift */,
@@ -174,10 +186,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69F7EB531F5006A90098BF47 /* avatar-overlay@2x.png in Resources */,
 				69DAAF691F4F2B46006E7CE3 /* LaunchScreen.storyboard in Resources */,
+				69F7EB511F5006A90098BF47 /* avatar-empty@2x.png in Resources */,
 				699CCA381F4FF1610089D45B /* owl.jpg in Resources */,
+				69F7EB521F5006A90098BF47 /* avatar-overlay.png in Resources */,
 				69DAAF731F4F3385006E7CE3 /* GoogleService-Info.plist in Resources */,
 				69DAAF661F4F2B46006E7CE3 /* Assets.xcassets in Resources */,
+				69F7EB501F5006A90098BF47 /* avatar-empty.png in Resources */,
 				69DAAF641F4F2B46006E7CE3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
