@@ -21,6 +21,22 @@ class CompleteSignUpViewController : UIViewController {
     var ref: DatabaseReference!
     
     
+    @IBOutlet weak var cityStateTextView: UITextField!
+    
+    @IBOutlet weak var emailTextView: UITextField!
+    
+    @IBOutlet weak var monthDayTExtView: UITextField!
+    @IBOutlet weak var bioTextView: UITextField!
+    @IBOutlet weak var passwordTextView: UITextField!
+    
+    @IBOutlet weak var retypePasswordTextView: UITextField!
+    
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var usernameTextView: UITextField!
+    
+    @IBOutlet weak var fullnameTextView: UITextField!
+    
+    @IBOutlet weak var scrollViewContentSize: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
@@ -30,32 +46,39 @@ class CompleteSignUpViewController : UIViewController {
             print(user?.email)
             
             print(user?.uid)
+            
+            emailTextView.text = user?.email
+            emailTextView.allowsEditingTextAttributes = false
         }
         
         sleep(4)
 
-        updateUser()
     }
     
     
     override func viewDidLayoutSubviews() {
+    
         
-        let screenSize: CGRect = UIScreen.main.bounds
-
         
-        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: screenSize.height)
-
+        //self.scrollView.contentSize = self.contentView.bounds.size*2
+        
     }
     
-    func updateUser(){
+    
+    @IBAction func registerClick(_ sender: Any) {
+        registerButton.isEnabled = false
         
         let userRef = self.ref.child("users").childByAutoId()
         userRef.child("email").setValue(user?.email)
-        userRef.child("display_name").setValue("Ben")
+        userRef.child("display_name").setValue(fullnameTextView.text)
         userRef.child("number").setValue(1234)
+        userRef.child("bio").setValue(bioTextView.text)
 
+        userRef.child("birthdate").setValue(monthDayTExtView.text){ (error, ref) -> Void in
+            print("check")
+        }
+        
     }
-    
     
     func uploadPic(){
         

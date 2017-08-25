@@ -14,12 +14,40 @@ class FirstViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
     var ref: DatabaseReference!
+    @IBOutlet var user = Auth.auth().currentUser
 
+    @IBOutlet weak var jobsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
 
+        let currentUserRef = ref.child("users").queryOrdered(byChild: "email")
+                                        .queryEqual(toValue: user?.email).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            
+            let thisUserObject = value?.allValues.first as! NSDictionary
+                 
+                                            
+            for actualProperties in thisUserObject as NSDictionary{
+                if let text = actualProperties.value as? String {
+                    // obj is a string array. Do something with stringArray
+                    self.jobsLabel.text = text as! String
+
+                }
+                else {
+                    // obj is not a string array
+                }
+                
+                print(actualProperties.key)
+                print("    is     ")
+                print(actualProperties.value)
+            }
+                                            
+        })
+        
+            
         // Do any additional setup after loading the view, typically from a nib.
     }
 

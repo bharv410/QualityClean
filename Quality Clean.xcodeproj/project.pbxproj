@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		304E38F77457A61E1DE1B11E /* Pods_Quality_Clean.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBC8E16BDFBE897656049B2 /* Pods_Quality_Clean.framework */; };
 		6923D3B41F4F8C75006D0FA1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923D3B31F4F8C75006D0FA1 /* Constants.swift */; };
+		699CCA381F4FF1610089D45B /* owl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 699CCA371F4FF1610089D45B /* owl.jpg */; };
 		69B09EE91F4F472400E134E8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B09EE81F4F472400E134E8 /* LoginViewController.swift */; };
 		69B09EEB1F4F474300E134E8 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B09EEA1F4F474300E134E8 /* ResetPasswordViewController.swift */; };
 		69D116761F4F967C004BE063 /* CompleteSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D116751F4F967C004BE063 /* CompleteSignUpViewController.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		6923D3B31F4F8C75006D0FA1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		699CCA371F4FF1610089D45B /* owl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = owl.jpg; sourceTree = "<group>"; };
 		69B09EE81F4F472400E134E8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		69B09EEA1F4F474300E134E8 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		69D116751F4F967C004BE063 /* CompleteSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteSignUpViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		69DAAF5B1F4F2B46006E7CE3 /* Quality Clean */ = {
 			isa = PBXGroup;
 			children = (
+				699CCA371F4FF1610089D45B /* owl.jpg */,
 				69DAAF701F4F3333006E7CE3 /* SignUpViewController.swift */,
 				69DAAF5C1F4F2B46006E7CE3 /* AppDelegate.swift */,
 				69DAAF5E1F4F2B46006E7CE3 /* FirstViewController.swift */,
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69DAAF691F4F2B46006E7CE3 /* LaunchScreen.storyboard in Resources */,
+				699CCA381F4FF1610089D45B /* owl.jpg in Resources */,
 				69DAAF731F4F3385006E7CE3 /* GoogleService-Info.plist in Resources */,
 				69DAAF661F4F2B46006E7CE3 /* Assets.xcassets in Resources */,
 				69DAAF641F4F2B46006E7CE3 /* Main.storyboard in Resources */,
