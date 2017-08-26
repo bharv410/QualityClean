@@ -35,6 +35,7 @@ class FirstViewController: UIViewController {
                                         .queryEqual(toValue: user?.email).observeSingleEvent(of: .value, with: { (snapshot) in
                                             
             if let value = snapshot.value as? NSDictionary{
+                var hasVid = false
                 //GOT USER OBJECT
             let thisUserObject = value.allValues.first as! NSDictionary
             for actualProperties in thisUserObject as NSDictionary{
@@ -49,6 +50,7 @@ class FirstViewController: UIViewController {
                     }
                     
                     if keyTitle == "video"{
+                        hasVid = true
                         let url = URL(string:actualProperties.value as! String)
                         self.player = AVPlayer(url: url!)
                         self.avpController = AVPlayerViewController()
@@ -67,9 +69,13 @@ class FirstViewController: UIViewController {
                     }
                 }
             }
+                
+                if(!hasVid){
+                    self.vidViewHolder.isHidden = true
+                }
         }else{
             self.logoutUser()
-        }
+            }
         
     })
 }

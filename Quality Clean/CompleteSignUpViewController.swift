@@ -19,38 +19,113 @@ class CompleteSignUpViewController : UIViewController {
     var videoURL: URL?
     var ref: DatabaseReference!
     var userRef : DatabaseReference!
+    @IBOutlet weak var signupSegmentedControl: UISegmentedControl!
     
     @IBOutlet var user = Auth.auth().currentUser
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var cityStateTextView: UITextField!
-    @IBOutlet weak var emailTextView: UITextField!
-    @IBOutlet weak var monthDayTExtView: UITextField!
-    @IBOutlet weak var bioTextView: UITextField!
-    @IBOutlet weak var passwordTextView: UITextField!
-    @IBOutlet weak var retypePasswordTextView: UITextField!
+    
+    @IBOutlet weak var fullNameTextField: UITextField!
+    @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var bedBathTextField: UITextField!
+    @IBOutlet weak var homeTypeTextField: UITextField!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var bioTextField: UITextField!
+    @IBOutlet weak var birthdateTextField: UITextField!
+    
+    @IBOutlet weak var cityStateTextField: UITextField!
+    
     @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var usernameTextView: UITextField!
-    @IBOutlet weak var fullnameTextView: UITextField!
     @IBOutlet weak var scrollViewContentSize: UIView!
     
     
+    @IBOutlet weak var maleFemaleControl: UISegmentedControl!
+    @IBOutlet weak var chooseVideoButton: UIButton!
+    
+    
+    var customer = true
+    var regButtonUp = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        ref = Database.database().reference()
-        userRef = self.ref.child("users").childByAutoId()
-
-        if (user != nil) {
-            emailTextView.text = user?.email
-            emailTextView.allowsEditingTextAttributes = false
+        initialSetup()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            self.setupCustomer()
+        })
+    }
+    
+    
+    func setupCustomer(){
+        chooseVideoButton.isHidden = true
+        maleFemaleControl.isHidden = true
+        bioTextField.isHidden = true
+        birthdateTextField.isHidden = true
+        cityStateTextField.isHidden = true
+        
+        
+        let yAxisMovement = chooseVideoButton.frame.height * 9
+        
+        var duration: TimeInterval = 1.0
+        UIView.animate(withDuration: duration, animations: { () -> Void in
+            if(!self.regButtonUp){
+            self.registerButton.frame = CGRect(
+                self.registerButton.frame.origin.x,
+                self.registerButton.frame.origin.y - yAxisMovement,
+                self.registerButton.frame.size.width,
+                self.registerButton.frame.size.height)
+            self.regButtonUp = true
+            }
+        })
+        
+        let screenSize: CGRect = UIScreen.main.bounds
+        let oneThirdScreenHeight = screenSize.height/3
+        
+        
+        scrollView.contentSize = CGSize(width:scrollViewContentSize.frame.width, height: screenSize.height + oneThirdScreenHeight)
         }
+    
+    func setupCleaner(){
         
-        let singleTap = UITapGestureRecognizer(target: self, action: Selector("tapDetected"))
-        singleTap.numberOfTapsRequired = 1 // you can change this value
-        imageView.isUserInteractionEnabled = true
-        imageView.addGestureRecognizer(singleTap)
+        chooseVideoButton.isHidden = false
+        maleFemaleControl.isHidden = false
+        bioTextField.isHidden = false
+        birthdateTextField.isHidden = false
+        cityStateTextField.isHidden = false
+        
+        let yAxisMovement = chooseVideoButton.frame.height * -9
+        
+        var duration: TimeInterval = 1.0
+        UIView.animate(withDuration: duration, animations: { () -> Void in
+            if(self.regButtonUp){
+            self.registerButton.frame = CGRect(
+                self.registerButton.frame.origin.x,
+                self.registerButton.frame.origin.y - yAxisMovement,
+                self.registerButton.frame.size.width,
+                self.registerButton.frame.size.height)
+            self.regButtonUp = false
+            }
+        })
+        
+        let screenSize: CGRect = UIScreen.main.bounds
+        let oneThirdScreenHeight = screenSize.height/3
         
         
+        scrollView.contentSize = CGSize(width:scrollViewContentSize.frame.width, height: screenSize.height + oneThirdScreenHeight + oneThirdScreenHeight)
+        
+
+    }
+    
+    func segmentedControlValueChanged(segment: UISegmentedControl) {
+        if segment.selectedSegmentIndex == 0 {
+            setupCustomer()
+        }else{
+            setupCleaner()
+        }
     }
     
     @IBAction func chooseImage(_ sender: Any) {
@@ -79,11 +154,18 @@ class CompleteSignUpViewController : UIViewController {
         registerButton.isEnabled = false
         
         userRef.child("email").setValue(user?.email)
-        userRef.child("display_name").setValue(fullnameTextView.text)
-        userRef.child("number").setValue(1234)
-        userRef.child("bio").setValue(bioTextView.text)
-        
-        userRef.child("birthdate").setValue(monthDayTExtView.text){ (error, ref) -> Void in
+        userRef.child("full_name").setValue(fullNameTextField.text)
+        userRef.child("address").setValue(addressTextField.text)
+        userRef.child("bed_bath").setValue(bedBathTextField.text)
+        userRef.child("home_type").setValue(homeTypeTextField.text)
+        if(customer){
+            userRef.child("user_type").setValue("customer")
+
+        }else{
+            userRef.child("user_type").setValue("cleaner")
+
+        }
+        userRef.child("phone_number").setValue(phoneNumberTextField.text){ (error, ref) -> Void in
             print("check")
             
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
@@ -97,6 +179,26 @@ class CompleteSignUpViewController : UIViewController {
         imagePickerController.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
         imagePickerController.mediaTypes = [kUTTypeMovie as NSString as String]
         present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func initialSetup(){
+        ref = Database.database().reference()
+        userRef = self.ref.child("users").childByAutoId()
+        
+        
+        signupSegmentedControl.addTarget(self, action: #selector(self.segmentedControlValueChanged(segment:))
+            , for: .valueChanged)
+        
+        
+//        if (user != nil) {
+//            emailTextView.text = user?.email
+//            emailTextView.allowsEditingTextAttributes = false
+//        }
+//        
+        let singleTap = UITapGestureRecognizer(target: self, action: Selector("tapDetected"))
+        singleTap.numberOfTapsRequired = 1 // you can change this value
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(singleTap)
     }
 }
 
@@ -191,4 +293,11 @@ class CompleteSignUpViewController : UIViewController {
             }
         }
     }
+}
+
+extension CGRect{
+    init(_ x:CGFloat,_ y:CGFloat,_ width:CGFloat,_ height:CGFloat) {
+        self.init(x:x,y:y,width:width,height:height)
+    }
+    
 }
