@@ -21,24 +21,6 @@ class ScrollViewController: UIViewController {
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image!)
         
-//        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
-//        contentView.addSubview(imageView)
-//        
-//        let imageView2 = UIImageView(image: image!)
-//        
-//        contentView.insertSubview(imageView2, belowSubview: imageView)
-//        
-//        let imageView3 = UIImageView(image: image!)
-//        
-//        contentView.insertSubview(imageView3, belowSubview: imageView2)
-//        
-//        let imageView4 = UIImageView(image: image!)
-//        
-//        contentView.insertSubview(imageView4, belowSubview: imageView3)
-//        
-
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
