@@ -21,6 +21,7 @@
 		69DAAF691F4F2B46006E7CE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69DAAF671F4F2B46006E7CE3 /* LaunchScreen.storyboard */; };
 		69DAAF711F4F3333006E7CE3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DAAF701F4F3333006E7CE3 /* SignUpViewController.swift */; };
 		69DAAF731F4F3385006E7CE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69DAAF721F4F3385006E7CE3 /* GoogleService-Info.plist */; };
+		69F452C91F50F8DE00D78E45 /* BookingsViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F452C81F50F8DE00D78E45 /* BookingsViewControllerTableViewController.swift */; };
 		69F7EB501F5006A90098BF47 /* avatar-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F7EB4C1F5006A90098BF47 /* avatar-empty.png */; };
 		69F7EB511F5006A90098BF47 /* avatar-empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F7EB4D1F5006A90098BF47 /* avatar-empty@2x.png */; };
 		69F7EB521F5006A90098BF47 /* avatar-overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F7EB4E1F5006A90098BF47 /* avatar-overlay.png */; };
@@ -43,6 +44,7 @@
 		69DAAF6A1F4F2B46006E7CE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69DAAF701F4F3333006E7CE3 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		69DAAF721F4F3385006E7CE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		69F452C81F50F8DE00D78E45 /* BookingsViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingsViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		69F7EB4C1F5006A90098BF47 /* avatar-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-empty.png"; sourceTree = "<group>"; };
 		69F7EB4D1F5006A90098BF47 /* avatar-empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-empty@2x.png"; sourceTree = "<group>"; };
 		69F7EB4E1F5006A90098BF47 /* avatar-overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-overlay.png"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				69DAAF671F4F2B46006E7CE3 /* LaunchScreen.storyboard */,
 				69DAAF6A1F4F2B46006E7CE3 /* Info.plist */,
 				6923D3B31F4F8C75006D0FA1 /* Constants.swift */,
+				69F452C81F50F8DE00D78E45 /* BookingsViewControllerTableViewController.swift */,
 			);
 			path = "Quality Clean";
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				69DAAF5F1F4F2B46006E7CE3 /* FirstViewController.swift in Sources */,
 				6923D3B41F4F8C75006D0FA1 /* Constants.swift in Sources */,
 				69D116761F4F967C004BE063 /* CompleteSignUpViewController.swift in Sources */,
+				69F452C91F50F8DE00D78E45 /* BookingsViewControllerTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
