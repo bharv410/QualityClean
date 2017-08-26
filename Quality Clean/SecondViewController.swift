@@ -15,14 +15,13 @@ class SecondViewController: UIViewController {
 
     
     var ref: DatabaseReference!
+    @IBOutlet var user = Auth.auth().currentUser
 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +36,7 @@ class SecondViewController: UIViewController {
         let dateString = dateFormatter.string(from: date) as NSString
         
         
-        self.ref.child("bookings").childByAutoId().setValue(["text": dateString]){ err, ref in
+        self.ref.child("bookings").child((user?.uid)!).childByAutoId().setValue(["text": dateString]){ err, ref in
             print("done")
         }
         

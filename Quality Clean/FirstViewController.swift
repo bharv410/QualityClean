@@ -20,12 +20,15 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var jobsLabel: UILabel!
     @IBOutlet weak var vidViewHolder: UIView!
     
+    @IBOutlet weak var callUsNowButton: UIButton!
 
     @IBOutlet weak var profileImageView: UIImageView!
     
     var ref: DatabaseReference!
     var player: AVPlayer!
     var avpController = AVPlayerViewController()
+    
+    var isCleaner = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +61,7 @@ class FirstViewController: UIViewController {
                         self.avpController.view.frame = self.vidViewHolder.frame
                         self.addChildViewController(self.avpController)
                         self.view.addSubview(self.avpController.view)
-                        
+                        self.isCleaner = true
                     }
                     
                     if keyTitle == "image"{
@@ -70,14 +73,21 @@ class FirstViewController: UIViewController {
                 }
             }
                 
-                if(!hasVid){
+                
+                if(self.isCleaner){
+                    if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
+                        tabBarItem.isEnabled = false
+                    }
+                }else{
                     self.vidViewHolder.isHidden = true
                 }
+                
         }else{
             self.logoutUser()
             }
         
     })
+        
 }
 
     override func didReceiveMemoryWarning() {
@@ -96,6 +106,10 @@ class FirstViewController: UIViewController {
         
     }
     
+    @IBAction func callUsNow(_ sender: Any) {
+        guard let number = URL(string: "tel://" + "4438784794") else { return }
+        UIApplication.shared.open(number)
+    }
     func logoutUser() {
         do{
         UserDefaults.standard.setValue(nil, forKey: "uid")

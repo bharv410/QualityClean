@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Profile-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController storyboardIdentifier="FirstVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="FirstViewController" customModule="Quality_Clean" customModuleProvider="target" sceneMemberID="viewController">
@@ -57,6 +57,14 @@
                                     <constraint firstAttribute="height" constant="260" id="gYA-9n-MrH"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msM-eY-qaS">
+                                <rect key="frame" x="276" y="28" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Call Us Now"/>
+                                <connections>
+                                    <action selector="callUsNow:" destination="9pv-A4-QxB" eventType="touchUpInside" id="6FZ-ch-M9m"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -75,8 +83,9 @@
                             <constraint firstItem="qlD-bs-Pe1" firstAttribute="trailing" secondItem="Pnb-VM-YUH" secondAttribute="trailing" id="zu7-ko-Ghn"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="first" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="callUsNowButton" destination="msM-eY-qaS" id="JdC-uh-DLP"/>
                         <outlet property="jobsLabel" destination="KQZ-1w-vlD" id="7ve-V0-FVV"/>
                         <outlet property="profileImageView" destination="qlD-bs-Pe1" id="bx1-Da-4c9"/>
                         <outlet property="vidViewHolder" destination="bNn-Mb-tKf" id="BKF-lm-61r"/>
@@ -86,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--Second-->
+        <!--Book Now!-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Quality_Clean" customModuleProvider="target" sceneMemberID="viewController">
@@ -109,7 +118,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Book Now!" image="second" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -351,7 +360,6 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="GAz-lA-CqP" kind="relationship" relationship="viewControllers" id="kQT-O6-Efc"/>
-                        <segue destination="uWt-wn-z5g" kind="relationship" relationship="viewControllers" id="Njf-CA-3SN"/>
                         <segue destination="qS1-Z3-fKY" kind="relationship" relationship="viewControllers" id="K7A-Mp-Cb7"/>
                     </connections>
                 </tabBarController>
@@ -602,7 +610,7 @@
             </objects>
             <point key="canvasLocation" x="2503" y="402"/>
         </scene>
-        <!--Item-->
+        <!--Past-->
         <scene sceneID="SOu-oh-HxZ">
             <objects>
                 <tableViewController id="qS1-Z3-fKY" customClass="BookingsViewControllerTableViewController" customModule="Quality_Clean" customModuleProvider="target" sceneMemberID="viewController">
@@ -634,14 +642,14 @@
                             <outlet property="delegate" destination="qS1-Z3-fKY" id="Hny-Cs-clC"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="U9g-h1-a0d"/>
+                    <tabBarItem key="tabBarItem" title="Past" id="U9g-h1-a0d"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xc8-w3-PDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-975" y="436"/>
         </scene>
-        <!--Item-->
+        <!--Upcoming-->
         <scene sceneID="m9u-GG-mUH">
             <objects>
                 <viewController id="GAz-lA-CqP" customClass="ScrollViewController" customModule="Quality_Clean" customModuleProvider="target" sceneMemberID="viewController">
@@ -708,7 +716,7 @@
                             <constraint firstItem="WjK-th-b76" firstAttribute="width" secondItem="wxI-lI-qS4" secondAttribute="width" id="rbb-Cl-w1R"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="jqu-dV-3fG"/>
+                    <tabBarItem key="tabBarItem" title="Upcoming" id="jqu-dV-3fG"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXx-LQ-iaH" userLabel="First Responder" sceneMemberID="firstResponder"/>

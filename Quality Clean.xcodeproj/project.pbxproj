@@ -173,6 +173,7 @@
 				TargetAttributes = {
 					69DAAF581F4F2B46006E7CE3 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 55NN688S43;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -414,6 +415,7 @@
 			baseConfigurationReference = 6A60A0633CC6975A39E0478E /* Pods-Quality Clean.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 55NN688S43;
 				INFOPLIST_FILE = "Quality Clean/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -429,6 +431,7 @@
 			baseConfigurationReference = 9743DBF875DC5A2F22730220 /* Pods-Quality Clean.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 55NN688S43;
 				INFOPLIST_FILE = "Quality Clean/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

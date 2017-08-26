@@ -7,9 +7,27 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class BookingsViewControllerTableViewController: UITableViewController {
     
+    
+    var ref: DatabaseReference!
+    @IBOutlet var user = Auth.auth().currentUser
+
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        ref = Database.database().reference()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        fetchData()
+    }
+
     var fruits = ["Apple", "Apricot", "Banana", "Blueberry", "Cantaloupe", "Cherry",
                   "Clementine", "Coconut", "Cranberry", "Fig", "Grape", "Grapefruit",
                   "Kiwi fruit", "Lemon", "Lime", "Lychee", "Mandarine", "Mango",
@@ -18,6 +36,27 @@ class BookingsViewControllerTableViewController: UITableViewController {
     
     // MARK: - UITableViewDataSource
     
+    
+    func fetchData(){
+        let pastBookingsRef = ref.child("bookings").child((user?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            
+            
+            var newItems = [String]()
+            
+            // loop through the children and append them to the new array
+            for item in snapshot.children {
+                newItems.append(String(describing: item))
+            }
+            
+            // replace the old array
+            self.fruits = newItems
+            // reload the UITableView
+            self.tableView.reloadData()
+            
+            
+        })
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
