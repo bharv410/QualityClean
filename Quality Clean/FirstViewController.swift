@@ -22,6 +22,7 @@ class FirstViewController: UIViewController {
     
     @IBOutlet weak var callUsNowButton: UIButton!
 
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     
     var ref: DatabaseReference!
@@ -33,63 +34,65 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        fetchUserData()
+}
 
+    func fetchUserData(){
         let currentUserRef = ref.child("users").queryOrdered(byChild: "email")
-                                        .queryEqual(toValue: user?.email).observeSingleEvent(of: .value, with: { (snapshot) in
-                                            
-            if let value = snapshot.value as? NSDictionary{
-                var hasVid = false
-                //GOT USER OBJECT
-            let thisUserObject = value.allValues.first as! NSDictionary
-            for actualProperties in thisUserObject as NSDictionary{
-                if let keyTitle = actualProperties.key as? String {
-                    
-                    
-                    
-                    if keyTitle == "display_name"{
-                        if let text = actualProperties.value as? String {
-                            self.jobsLabel.text = text 
+            .queryEqual(toValue: user?.email).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                if let value = snapshot.value as? NSDictionary{
+                    var hasVid = false
+                    //GOT USER OBJECT
+                    let thisUserObject = value.allValues.first as! NSDictionary
+                    for actualProperties in thisUserObject as NSDictionary{
+                        if let keyTitle = actualProperties.key as? String {
+                            
+                            
+                            
+                            if keyTitle == "full_name"{
+                                if let text = actualProperties.value as? String {
+                                    self.jobsLabel.text = text
+                                }
+                            }
+                            
+                            if keyTitle == "video"{
+                                hasVid = true
+                                let url = URL(string:actualProperties.value as! String)
+                                self.player = AVPlayer(url: url!)
+                                self.avpController = AVPlayerViewController()
+                                self.avpController.player = self.player
+                                self.avpController.view.frame = self.vidViewHolder.frame
+                                self.addChildViewController(self.avpController)
+                                self.view.addSubview(self.avpController.view)
+                                self.isCleaner = true
+                            }
+                            
+                            if keyTitle == "image"{
+                                let url = URL(string:actualProperties.value as! String)
+                                
+                                self.profileImageView.downloadedFrom(url: url!)
+                                
+                            }
                         }
                     }
                     
-                    if keyTitle == "video"{
-                        hasVid = true
-                        let url = URL(string:actualProperties.value as! String)
-                        self.player = AVPlayer(url: url!)
-                        self.avpController = AVPlayerViewController()
-                        self.avpController.player = self.player
-                        self.avpController.view.frame = self.vidViewHolder.frame
-                        self.addChildViewController(self.avpController)
-                        self.view.addSubview(self.avpController.view)
-                        self.isCleaner = true
+                    
+                    if(self.isCleaner){
+                        if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
+                            tabBarItem.isEnabled = false
+                        }
+                    }else{
+                        self.vidViewHolder.isHidden = true
                     }
                     
-                    if keyTitle == "image"{
-                        let url = URL(string:actualProperties.value as! String)
-                        
-                        self.profileImageView.downloadedFrom(url: url!)
-                        
-                    }
-                }
-            }
-                
-                
-                if(self.isCleaner){
-                    if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
-                        tabBarItem.isEnabled = false
-                    }
                 }else{
-                    self.vidViewHolder.isHidden = true
+                    self.logoutUser()
                 }
                 
-        }else{
-            self.logoutUser()
-            }
-        
-    })
-        
-}
+            })
 
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
