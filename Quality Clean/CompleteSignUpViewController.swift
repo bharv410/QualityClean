@@ -55,7 +55,9 @@ class CompleteSignUpViewController : UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            if(self.customer){
             self.setupCustomer()
+            }
         })
     }
     
@@ -122,8 +124,10 @@ class CompleteSignUpViewController : UIViewController {
     
     func segmentedControlValueChanged(segment: UISegmentedControl) {
         if segment.selectedSegmentIndex == 0 {
+            customer = true
             setupCustomer()
         }else{
+            customer = false
             setupCleaner()
         }
     }

@@ -23,6 +23,18 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var callUsNowButton: UIButton!
 
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var bedBathLabel: UILabel!
+    
+    @IBOutlet weak var emailLabel: UILabel!
+    
+    @IBOutlet weak var fullNameLabel: UILabel!
+    
+    @IBOutlet weak var homeTypeLabel: UILabel!
+    
+    @IBOutlet weak var scrollViewContentView: UIView!
+    
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+    
     @IBOutlet weak var profileImageView: UIImageView!
     
     var ref: DatabaseReference!
@@ -48,6 +60,41 @@ class FirstViewController: UIViewController {
                     for actualProperties in thisUserObject as NSDictionary{
                         if let keyTitle = actualProperties.key as? String {
                             
+                            if keyTitle == "full_name"{
+                                if let text = actualProperties.value as? String {
+                                    self.jobsLabel.text = text
+                                }
+                            }
+                            
+                            if keyTitle == "bed_bath"{
+                                if let text = actualProperties.value as? String {
+                                    self.bedBathLabel.text = text
+                                }
+                            }
+                            
+                            if keyTitle == "email"{
+                                if let text = actualProperties.value as? String {
+                                    self.emailLabel.text = text
+                                }
+                            }
+                            
+                            if keyTitle == "address"{
+                                if let text = actualProperties.value as? String {
+                                    self.addressLabel.text = text
+                                }
+                            }
+                            
+                            if keyTitle == "home_type"{
+                                if let text = actualProperties.value as? String {
+                                    self.homeTypeLabel.text = text
+                                }
+                            }
+                            
+                            if keyTitle == "phone_number"{
+                                if let text = actualProperties.value as? String {
+                                    self.phoneNumberLabel.text = text
+                                }
+                            }
                             
                             
                             if keyTitle == "full_name"{
@@ -55,6 +102,9 @@ class FirstViewController: UIViewController {
                                     self.jobsLabel.text = text
                                 }
                             }
+                            
+                            
+                            
                             
                             if keyTitle == "video"{
                                 hasVid = true
@@ -64,7 +114,7 @@ class FirstViewController: UIViewController {
                                 self.avpController.player = self.player
                                 self.avpController.view.frame = self.vidViewHolder.frame
                                 self.addChildViewController(self.avpController)
-                                self.view.addSubview(self.avpController.view)
+                                self.scrollViewContentView.addSubview(self.avpController.view)
                                 self.isCleaner = true
                             }
                             
