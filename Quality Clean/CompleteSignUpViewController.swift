@@ -74,7 +74,7 @@ class CompleteSignUpViewController : UIViewController {
         
         let yAxisMovement = chooseVideoButton.frame.height * 9
         
-        var duration: TimeInterval = 1.0
+        let duration: TimeInterval = 1.0
         UIView.animate(withDuration: duration, animations: { () -> Void in
             if(!self.regButtonUp){
             self.registerButton.frame = CGRect(
@@ -238,30 +238,29 @@ class CompleteSignUpViewController : UIViewController {
             
             
             if mediaType  == "public.image" {
-                
-                
-                
-                print("Image Selected")
-                //let tempImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-                //imageView.image = tempImage
-                
-                if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
-                    imageView.image = image
-                }
-                else if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-                    imageView.image = image
-                } else{
-                    print("Something went wrong")
-                }
-                
-                let imageData = UIImagePNGRepresentation(imageView.image!) as NSData?
-
-
-                do {
+                dismiss(animated: true, completion: {
                     
+                    print("Image Selected")
+                    //let tempImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+                    //imageView.image = tempImage
+                    
+                    if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+                        self.imageView.image = image
+                    }
+                    else if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                        self.imageView.image = image
+                    } else{
+                        print("Something went wrong")
+                    }
+                    
+                    let imageData = UIImagePNGRepresentation(self.imageView.image!) as NSData?
+                    
+                    
+                    do {
+                        
                         let fileName = (self.user?.email)! + ".png"
                         let imageRef = Storage.storage().reference().child("images").child(fileName)
-                    
+                        
                         
                         let uploadTask = imageRef.putData(imageData as! Data, metadata: nil) { metadata, error in
                             if let error = error {
@@ -274,17 +273,17 @@ class CompleteSignUpViewController : UIViewController {
                                     //save https value
                                     if individualurl.absoluteString.range(of:"https") != nil{
                                         self.userRef.child("image").setValue(individualurl.absoluteString){ (error, ref) -> Void in
-                                            self.dismiss(animated: true) {
-                                            }
+                                            
                                         }
                                     }
                                 }
                             }
                         }
-                    
-                } catch let error {
-                    debugPrint("ERRor ::\(error)")
-                }
+                        
+                    } catch let error {
+                        debugPrint("ERRor ::\(error)")
+                    }
+                })
             }
             
             if mediaType == "public.movie" {
