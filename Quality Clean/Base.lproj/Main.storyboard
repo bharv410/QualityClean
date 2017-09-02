@@ -217,6 +217,7 @@
                         <outlet property="jobsLabel" destination="OWX-fC-TQs" id="ijz-w2-t3G"/>
                         <outlet property="phoneNumberLabel" destination="6U3-bQ-OHg" id="MUw-HF-vaa"/>
                         <outlet property="profileImageView" destination="WxD-Md-4v7" id="zYZ-nb-IsZ"/>
+                        <outlet property="scrollView" destination="Oce-dM-yf3" id="Ujh-Lk-eTW"/>
                         <outlet property="scrollViewContentView" destination="EWY-xm-td6" id="fEA-42-ulm"/>
                         <outlet property="vidViewHolder" destination="fUS-75-Z82" id="rOb-uW-5T4"/>
                     </connections>
