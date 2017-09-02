@@ -12,16 +12,12 @@ import FirebaseAuth
 
 class BookingsViewControllerTableViewController: UITableViewController {
     
-    
     var ref: DatabaseReference!
     @IBOutlet var user = Auth.auth().currentUser
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
