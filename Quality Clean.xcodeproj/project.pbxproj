@@ -14,6 +14,8 @@
 		6956B6011F5AFA4D003E810C /* BookingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6956B6001F5AFA4D003E810C /* BookingDetailViewController.swift */; };
 		6956B6031F5B0128003E810C /* o.png in Resources */ = {isa = PBXBuildFile; fileRef = 6956B6021F5B0128003E810C /* o.png */; };
 		696160F21F51E9F1009133F6 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696160F11F51E9F1009133F6 /* ScrollViewController.swift */; };
+		6993EBA91F5B6066002C8965 /* icons8-User-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 6993EBA81F5B6066002C8965 /* icons8-User-50.png */; };
+		6993EBB11F5B61D4002C8965 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 6993EBB01F5B61D4002C8965 /* rocket.png */; };
 		699CCA381F4FF1610089D45B /* owl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 699CCA371F4FF1610089D45B /* owl.jpg */; };
 		69B09EE91F4F472400E134E8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B09EE81F4F472400E134E8 /* LoginViewController.swift */; };
 		69B09EEB1F4F474300E134E8 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B09EEA1F4F474300E134E8 /* ResetPasswordViewController.swift */; };
@@ -42,6 +44,8 @@
 		6956B6001F5AFA4D003E810C /* BookingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingDetailViewController.swift; sourceTree = "<group>"; };
 		6956B6021F5B0128003E810C /* o.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = o.png; sourceTree = "<group>"; };
 		696160F11F51E9F1009133F6 /* ScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		6993EBA81F5B6066002C8965 /* icons8-User-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-User-50.png"; sourceTree = "<group>"; };
+		6993EBB01F5B61D4002C8965 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
 		699CCA371F4FF1610089D45B /* owl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = owl.jpg; sourceTree = "<group>"; };
 		69B09EE81F4F472400E134E8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		69B09EEA1F4F474300E134E8 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 		69752EBD1F50C84C000B7859 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				6993EBB01F5B61D4002C8965 /* rocket.png */,
+				6993EBA81F5B6066002C8965 /* icons8-User-50.png */,
 				6956B6021F5B0128003E810C /* o.png */,
 				6956B5FE1F5AF808003E810C /* placeholderhome.jpg */,
 				69C52DD81F5353BC00E4E9C9 /* transparenticon.png */,
@@ -225,11 +231,13 @@
 				69F7EB511F5006A90098BF47 /* avatar-empty@2x.png in Resources */,
 				699CCA381F4FF1610089D45B /* owl.jpg in Resources */,
 				69F7EB521F5006A90098BF47 /* avatar-overlay.png in Resources */,
+				6993EBB11F5B61D4002C8965 /* rocket.png in Resources */,
 				69DAAF731F4F3385006E7CE3 /* GoogleService-Info.plist in Resources */,
 				6956B6031F5B0128003E810C /* o.png in Resources */,
 				69C52DD91F5353BC00E4E9C9 /* transparenticon.png in Resources */,
 				69C52DD71F53539000E4E9C9 /* icon.png in Resources */,
 				69DAAF661F4F2B46006E7CE3 /* Assets.xcassets in Resources */,
+				6993EBA91F5B6066002C8965 /* icons8-User-50.png in Resources */,
 				69F7EB501F5006A90098BF47 /* avatar-empty.png in Resources */,
 				69DAAF641F4F2B46006E7CE3 /* Main.storyboard in Resources */,
 			);

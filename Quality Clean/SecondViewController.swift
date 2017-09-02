@@ -49,8 +49,19 @@ class SecondViewController: UIViewController {
     }
     
     func chooseDate(){
-        let picker = DateTimePicker.show()
-        picker.highlightColor = UIColor(red: 255.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1)
+
+        let min = Date()
+        let max = Date().addingTimeInterval(365*60 * 60 * 24)
+        let picker = DateTimePicker.show(minimumDate: min, maximumDate: max)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .short
+        dateFormatter.doesRelativeDateFormatting = true
+        
+        picker.is12HourFormat = true
+        picker.dateFormat = "MMM d, h:mm a"
+        picker.highlightColor = UIColor(red: 192.0/255.0, green: 216.0/255.0, blue: 144.0/255.0, alpha: 1)
         picker.isDatePickerOnly = false // to hide time and show only date picker
         picker.completionHandler = { date in
             self.chosenDate = date
@@ -69,7 +80,8 @@ class SecondViewController: UIViewController {
                 ["value": "Monthly", "display": "Monthly"]
             ]
             
-            PickerDialog().show("Frequency", options: pickerData, selected: "kilometer") {
+            
+            PickerDialog().show("How often?", options: pickerData, selected: "kilometer") {
                 (value) -> Void in
                 
                 print("Unit selected: \(value)")
