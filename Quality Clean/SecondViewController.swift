@@ -48,10 +48,22 @@ class SecondViewController: UIViewController {
         
         let bookingDateString = dateFormatter.string(from: date)
         
-        self.ref.child("bookings").child((user?.uid)!).childByAutoId().setValue(["text": bookingDateString]){ err, ref in
+        
+        
+        
+
+        
+        let childRef = self.ref.child("bookings").childByAutoId()
+        
+        
+        
+        
+        childRef.child("accepted").setValue(false)
+        childRef.child("booking_date").setValue(bookingDateString)
+        childRef.child("customer").setValue(user?.uid){ (error, ref) -> Void in
             print("done")
         }
-        
+
         
         
         

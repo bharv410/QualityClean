@@ -48,101 +48,152 @@ class FirstViewController: UIViewController {
         ref = Database.database().reference()
         fetchUserData()
 }
-
+    
     func fetchUserData(){
+        var hasBedBath = false
+
         let currentUserRef = ref.child("users").queryOrdered(byChild: "email")
             .queryEqual(toValue: user?.email).observeSingleEvent(of: .value, with: { (snapshot) in
-                
                 if let value = snapshot.value as? NSDictionary{
-                    var hasVid = false
-                    //GOT USER OBJECT
                     let thisUserObject = value.allValues.first as! NSDictionary
-                    for actualProperties in thisUserObject as NSDictionary{
-                        if let keyTitle = actualProperties.key as? String {
-                            
-                            if keyTitle == "full_name"{
-                                if let text = actualProperties.value as? String {
-                                    self.jobsLabel.text = text
-                                }
-                            }
-                            
-                            if keyTitle == "bed_bath"{
-                                if let text = actualProperties.value as? String {
-                                    self.bedBathLabel.text = text
-                                }
-                            }
-                            
-                            if keyTitle == "email"{
-                                if let text = actualProperties.value as? String {
-                                    self.emailLabel.text = text
-                                }
-                            }
-                            
-                            if keyTitle == "address"{
-                                if let text = actualProperties.value as? String {
-                                    self.addressLabel.text = text
-                                }
-                            }
-                            
-                            if keyTitle == "home_type"{
-                                if let text = actualProperties.value as? String {
-                                    self.homeTypeLabel.text = text
-                                }
-                            }
-                            
-                            if keyTitle == "phone_number"{
-                                if let text = actualProperties.value as? String {
-                                    self.phoneNumberLabel.text = text
-                                }
-                            }
-                            
-                            
-                            if keyTitle == "full_name"{
-                                if let text = actualProperties.value as? String {
-                                    self.jobsLabel.text = text
-                                }
-                            }
-                            
-                            
-                            
-                            
-                            if keyTitle == "video"{
-                                hasVid = true
-                                let url = URL(string:actualProperties.value as! String)
-                                self.player = AVPlayer(url: url!)
-                                self.avpController = AVPlayerViewController()
-                                self.avpController.player = self.player
-                                self.avpController.view.frame = self.vidViewHolder.frame
-                                self.addChildViewController(self.avpController)
-                                self.scrollViewContentView.addSubview(self.avpController.view)
-                                self.isCleaner = true
-                            }
-                            
-                            if keyTitle == "image"{
-                                let url = URL(string:actualProperties.value as! String)
-                                
-                                self.profileImageView.downloadedFrom(url: url!)
-                                
-                            }
-                        }
-                    }
-                    
-                    
-                    if(self.isCleaner){
-                        if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
-                            tabBarItem.isEnabled = false
-                        }
-                    }else{
-                        self.vidViewHolder.isHidden = true
-                    }
-                    
-                }else{
-                    self.logoutUser()
-                }
-                
-            })
 
+                    
+                    if let fullName = thisUserObject["bed_bath"] {
+                        print(fullName)
+                        hasBedBath = true
+                        
+                    }
+                }
+            }
+        )
+        if(!hasBedBath){
+            print("nil")
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "CompleteSignUp")
+            self.present(vc!, animated: true, completion: nil)
+        }
     }
+
+//    func fetchUserData(){
+//        let currentUserRef = ref.child("users").queryOrdered(byChild: "email")
+//            .queryEqual(toValue: user?.email).observeSingleEvent(of: .value, with: { (snapshot) in
+//                
+//                if let value = snapshot.value as? NSDictionary{
+//                    var hasVid = false
+//                    //GOT USER OBJECT
+//                    let thisUserObject = value.allValues.first as! NSDictionary
+//                    
+//                    
+//                    //let fullName = thisUserObject.value(forKey: <#T##String#>)
+//                    
+//                    //if(value.has)
+//                    if let fullName = thisUserObject["full_name"] {
+//                        
+//                        
+//                    }else{
+//                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CompleteSignUp")
+//                        self.present(vc!, animated: true, completion: nil)
+//                    }
+//                    
+//                    for actualProperties in thisUserObject as NSDictionary{
+//                        if let keyTitle = actualProperties.key as? String {
+//                            
+//                            if keyTitle == "full_name"{
+//                                if let text = actualProperties.value as? String {
+//                                    self.jobsLabel.text = text
+//                                }
+//                            }
+//                            var customer = false
+//                            
+//                            if keyTitle == "user_type"{
+//                                if let text = actualProperties.value as? String {
+//                                    if (text == "customer"){
+//                                        customer = true
+//                                        self.isCleaner = false
+//                                        print("customer")
+//                                    }else{
+//                                        print("cleaner")
+//                                    }
+//                                }
+//                            }
+//                            
+//                            
+//                            
+//                            if keyTitle == "bed_bath"{
+//                                if let text = actualProperties.value as? String {
+//                                    self.bedBathLabel.text = text
+//                            }
+//                            
+//                            if keyTitle == "email"{
+//                                if let text = actualProperties.value as? String {
+//                                    self.emailLabel.text = text
+//                                }
+//                            }
+//                            
+//                            if keyTitle == "address"{
+//                                if let text = actualProperties.value as? String {
+//                                    self.addressLabel.text = text
+//                                }
+//                            }
+//                            
+//                            if keyTitle == "home_type"{
+//                                if let text = actualProperties.value as? String {
+//                                    self.homeTypeLabel.text = text
+//                                }
+//                            }
+//                            
+//                            if keyTitle == "phone_number"{
+//                                if let text = actualProperties.value as? String {
+//                                    self.phoneNumberLabel.text = text
+//                                }
+//                            }
+//                            
+//                            
+//                            if keyTitle == "full_name"{
+//                                if let text = actualProperties.value as? String {
+//                                    self.jobsLabel.text = text
+//                                }
+//                            }
+//                            
+//                            
+//                            
+//                            
+//                            if keyTitle == "video"{
+//                                hasVid = true
+//                                let url = URL(string:actualProperties.value as! String)
+//                                self.player = AVPlayer(url: url!)
+//                                self.avpController = AVPlayerViewController()
+//                                self.avpController.player = self.player
+//                                self.avpController.view.frame = self.vidViewHolder.frame
+//                                self.addChildViewController(self.avpController)
+//                                self.scrollViewContentView.addSubview(self.avpController.view)
+//                                self.isCleaner = true
+//                            }
+//                            
+//                            if keyTitle == "image"{
+//                                let url = URL(string:actualProperties.value as! String)
+//                                
+//                                self.profileImageView.downloadedFrom(url: url!)
+//                                }
+//                            }
+//                        }
+//                    }
+//                    
+//                    
+//                    if(self.isCleaner){
+//                        if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
+//                            tabBarItem.isEnabled = false
+//                        }
+//                    }else{
+//                        self.vidViewHolder.isHidden = true
+//                    }
+//                    
+//                }else{
+//                    self.logoutUser()
+//                }
+//                
+//            })
+//
+//    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -217,4 +268,3 @@ extension UIImageView {
         downloadedFrom(url: url, contentMode: mode)
     }
 }
-

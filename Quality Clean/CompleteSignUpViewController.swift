@@ -46,6 +46,8 @@ class CompleteSignUpViewController : UIViewController {
     var customer = true
     var regButtonUp = false
     
+    var videoChosen = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -156,6 +158,30 @@ class CompleteSignUpViewController : UIViewController {
     
     @IBAction func registerClick(_ sender: Any) {
         registerButton.isEnabled = false
+        
+        if ((customer) && (fullNameTextField.isEmpty) || (addressTextField.isEmpty) || (bedBathTextField.isEmpty) || (homeTypeTextField.isEmpty)) {
+            let alert = UIAlertController(title: "Please fill out required info", message: "You didn't fill everything out", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Great!", style: UIAlertActionStyle.default, handler: nil))
+            
+            self.present(alert, animated: true) {
+                
+                print("done")
+            }
+        }
+        
+        if ((!customer) && (!videoChosen)) {
+            let alert = UIAlertController(title: "Please add your video", message: "You didn't fill everything out", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Great!", style: UIAlertActionStyle.default, handler: nil))
+            
+            self.present(alert, animated: true) {
+                
+                print("done")
+            }
+        }
+        
+        
+        
+        
         
         userRef.child("email").setValue(user?.email)
         userRef.child("full_name").setValue(fullNameTextField.text)
@@ -284,6 +310,7 @@ class CompleteSignUpViewController : UIViewController {
                                     if individualurl.absoluteString.range(of:"https") != nil{
                                         self.userRef.child("video").setValue(individualurl.absoluteString){ (error, ref) -> Void in
                                             self.dismiss(animated: true) {
+                                                self.videoChosen = true
                                             }
                                         }
                                     }
@@ -304,4 +331,10 @@ extension CGRect{
         self.init(x:x,y:y,width:width,height:height)
     }
     
+}
+
+extension UITextField {
+    var isEmpty: Bool {
+        return text?.isEmpty ?? true
+    }
 }

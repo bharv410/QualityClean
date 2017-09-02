@@ -13,6 +13,8 @@
 		699CCA381F4FF1610089D45B /* owl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 699CCA371F4FF1610089D45B /* owl.jpg */; };
 		69B09EE91F4F472400E134E8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B09EE81F4F472400E134E8 /* LoginViewController.swift */; };
 		69B09EEB1F4F474300E134E8 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B09EEA1F4F474300E134E8 /* ResetPasswordViewController.swift */; };
+		69C52DD71F53539000E4E9C9 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C52DD61F53539000E4E9C9 /* icon.png */; };
+		69C52DD91F5353BC00E4E9C9 /* transparenticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C52DD81F5353BC00E4E9C9 /* transparenticon.png */; };
 		69D116761F4F967C004BE063 /* CompleteSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D116751F4F967C004BE063 /* CompleteSignUpViewController.swift */; };
 		69DAAF5D1F4F2B46006E7CE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DAAF5C1F4F2B46006E7CE3 /* AppDelegate.swift */; };
 		69DAAF5F1F4F2B46006E7CE3 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DAAF5E1F4F2B46006E7CE3 /* FirstViewController.swift */; };
@@ -35,6 +37,8 @@
 		699CCA371F4FF1610089D45B /* owl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = owl.jpg; sourceTree = "<group>"; };
 		69B09EE81F4F472400E134E8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		69B09EEA1F4F474300E134E8 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		69C52DD61F53539000E4E9C9 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		69C52DD81F5353BC00E4E9C9 /* transparenticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparenticon.png; sourceTree = "<group>"; };
 		69D116751F4F967C004BE063 /* CompleteSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteSignUpViewController.swift; sourceTree = "<group>"; };
 		69DAAF591F4F2B46006E7CE3 /* Quality Clean.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quality Clean.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69DAAF5C1F4F2B46006E7CE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 		69752EBD1F50C84C000B7859 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				69C52DD81F5353BC00E4E9C9 /* transparenticon.png */,
+				69C52DD61F53539000E4E9C9 /* icon.png */,
 				69F7EB4C1F5006A90098BF47 /* avatar-empty.png */,
 				69F7EB4D1F5006A90098BF47 /* avatar-empty@2x.png */,
 				69F7EB4E1F5006A90098BF47 /* avatar-overlay.png */,
@@ -207,6 +213,8 @@
 				699CCA381F4FF1610089D45B /* owl.jpg in Resources */,
 				69F7EB521F5006A90098BF47 /* avatar-overlay.png in Resources */,
 				69DAAF731F4F3385006E7CE3 /* GoogleService-Info.plist in Resources */,
+				69C52DD91F5353BC00E4E9C9 /* transparenticon.png in Resources */,
+				69C52DD71F53539000E4E9C9 /* icon.png in Resources */,
 				69DAAF661F4F2B46006E7CE3 /* Assets.xcassets in Resources */,
 				69F7EB501F5006A90098BF47 /* avatar-empty.png in Resources */,
 				69DAAF641F4F2B46006E7CE3 /* Main.storyboard in Resources */,
@@ -416,7 +424,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6A60A0633CC6975A39E0478E /* Pods-Quality Clean.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				DEVELOPMENT_TEAM = 55NN688S43;
 				INFOPLIST_FILE = "Quality Clean/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -432,7 +440,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9743DBF875DC5A2F22730220 /* Pods-Quality Clean.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				DEVELOPMENT_TEAM = 55NN688S43;
 				INFOPLIST_FILE = "Quality Clean/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
