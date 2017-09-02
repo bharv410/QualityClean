@@ -51,7 +51,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-        originalScrollSize = scrollView.contentSize
+        //originalScrollSize = scrollView.contentSize
         fetchUserData()
     }
     
@@ -106,7 +106,7 @@ class FirstViewController: UIViewController {
                         self.avpController.view.frame = self.vidViewHolder.frame
                         self.addChildViewController(self.avpController)
                         self.scrollViewContentView.addSubview(self.avpController.view)
-                        self.scrollView.contentSize = self.originalScrollSize
+                        //self.scrollView.contentSize = self.originalScrollSize
 
                         }
                     }
@@ -130,20 +130,23 @@ class FirstViewController: UIViewController {
     func callBackAfterLoginDone(){
         if(!self.completedSignup){
             self.finishSignUp()
-            
-            if(self.isCleaner){
-                if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
-                    tabBarItem.isEnabled = false
-                }
-            }
-            
-            
         }
         
         if(!self.hasVid){
             self.vidViewHolder.isHidden = true
-            scrollView.contentSize = CGSize(width: scrollView.contentSize.width,height: 1.0)
+           scrollView.contentSize = CGSize(width: scrollView.contentSize.width,height: 1.0)
 
+        }
+        
+        if(self.isCleaner){
+            if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
+                tabBarItem.isEnabled = false
+            }
+            
+            
+            if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[2] as? UITabBarItem {
+                tabBarItem.title = "Unaccepted"
+            }
         }
     }
     

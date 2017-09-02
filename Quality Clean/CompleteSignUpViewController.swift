@@ -157,7 +157,6 @@ class CompleteSignUpViewController : UIViewController {
     }
     
     @IBAction func registerClick(_ sender: Any) {
-        registerButton.isEnabled = false
         
         if ((customer) && (fullNameTextField.isEmpty) || (addressTextField.isEmpty) || (bedBathTextField.isEmpty) || (homeTypeTextField.isEmpty)) {
             let alert = UIAlertController(title: "Please fill out required info", message: "You didn't fill everything out", preferredStyle: UIAlertControllerStyle.alert)

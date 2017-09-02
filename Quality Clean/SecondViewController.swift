@@ -69,7 +69,7 @@ class SecondViewController: UIViewController {
                 ["value": "Monthly", "display": "Monthly"]
             ]
             
-            PickerDialog().show("Distance units", options: pickerData, selected: "kilometer") {
+            PickerDialog().show("Frequency", options: pickerData, selected: "kilometer") {
                 (value) -> Void in
                 
                 print("Unit selected: \(value)")
