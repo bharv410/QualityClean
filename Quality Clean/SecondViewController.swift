@@ -25,13 +25,14 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     var ref: DatabaseReference!
     @IBOutlet var user = Auth.auth().currentUser
 
-    
+    var chosenDate = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
         myPicker.delegate = self
         myPicker.dataSource = self
+        chooseDate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,23 +40,45 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         // Dispose of any resources that can be recreated.
     }
 
-    func pickerView(
-        pickerView: UIPickerView,
-        didSelectRow row: Int,
-        inComponent component: Int)
-    {
-        updateLabel()
+    func pickerView(pickerView: UIPickerView,didSelectRow row: Int,inComponent component: Int){updateLabel()
     }
     
     
     @IBAction func requestBooking(_ sender: Any) {
         
         
+        
+        
+        self.reguestBooking(date: self.chosenDate)
+
+    }
+    
+    func chooseDate(){
         let picker = DateTimePicker.show()
         picker.highlightColor = UIColor(red: 255.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1)
         picker.isDatePickerOnly = false // to hide time and show only date picker
         picker.completionHandler = { date in
-            self.reguestBooking(date: date)
+            self.chosenDate = date
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .long
+            dateFormatter.timeStyle = .short
+            dateFormatter.doesRelativeDateFormatting = true
+            
+            self.dateLabel.text = dateFormatter.string(from: date)
+            
+            let pickerData = [
+                ["value": "mile", "display": "Miles (mi)"],
+                ["value": "kilometer", "display": "Kilometers (km)"]
+            ]
+            
+            PickerDialog().show("Distance units", options: pickerData, selected: "kilometer") {
+                (value) -> Void in
+                
+                print("Unit selected: \(value)")
+            }
+            
+            
         }
     }
     
