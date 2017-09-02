@@ -115,14 +115,14 @@ class FirstViewController: UIViewController {
                         let url = URL(string:image as! String)
                         self.profileImageView.downloadedFrom(url: url!)
                     }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        self.callBackAfterLoginDone()
+                    })
                 }else{
                     self.logoutUser()
                 }
             }
-        )
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
-            self.callBackAfterLoginDone()
-        }
         )
     }
     
@@ -139,12 +139,22 @@ class FirstViewController: UIViewController {
         }
         
         if(self.isCleaner){
-            if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
-                tabBarItem.isEnabled = false
+            if let tabBarController = self.tabBarController {
+                let indexToRemove = 1
+                if indexToRemove < (tabBarController.viewControllers?.count)! {
+                    var viewControllers = tabBarController.viewControllers
+                    viewControllers?.remove(at: indexToRemove)
+                    tabBarController.viewControllers = viewControllers
+                }
             }
             
             
-            if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[2] as? UITabBarItem {
+//            if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
+//                tabBarItem.isEnabled = false
+//            }
+            
+            
+            if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
                 tabBarItem.title = "Unaccepted"
             }
         }

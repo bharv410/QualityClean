@@ -47,6 +47,17 @@ class BookingsViewControllerTableViewController: UITableViewController {
             self.tableView.reloadData()
             
             
+            if(self.fruits.count<1){
+                let alert = UIAlertController(title: "No past bookings", message: "Almost there!", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Okay!", style: UIAlertActionStyle.default, handler: nil))
+                
+                self.present(alert, animated: true) {
+                    
+                    print(self.user?.email)
+                }
+            }
+            
+            
         })
     }
     override func numberOfSections(in tableView: UITableView) -> Int {

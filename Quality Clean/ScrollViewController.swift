@@ -56,7 +56,7 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
                 
                 
                 
-                newItems.append(String(describing: item))
+                newItems.append(food as! String)
             }
             self.fruits = newItems
             self.tableVie.reloadData()
@@ -88,7 +88,15 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
         print("row: \(indexPath.row)")
         
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "BookingDetail")
+        self.present(vc!, animated: true) { 
+            
+            
+        }
 
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

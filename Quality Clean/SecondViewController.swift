@@ -119,10 +119,18 @@ class SecondViewController: UIViewController {
         let alert = UIAlertController(title: "You have succesfuly booked a cleaner for the below date! We will contact you within the hour with another confirmation", message: bookingDateString, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Great!", style: UIAlertActionStyle.default, handler: nil))
         
-        self.present(alert, animated: true) {
-            self.dateLabel.text = "When?: " + bookingDateString
-            print("done")
+        self.dateLabel.text = "When?: " + bookingDateString
+        print("done")
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "BookingDetail") as! BookingDetailViewController
+        vc.shouldShowClaimButton = false
+        self.present(vc, animated: true) {
+            
+            vc.present(alert, animated: true) {
+                
+            }
         }
+        
     }
     
     private func callNumber(phoneNumber:String) {
