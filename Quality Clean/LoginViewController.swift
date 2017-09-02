@@ -18,6 +18,24 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
 
 
+    
+    
+    override func viewDidLoad() {
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+        
+    }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     //Login Action
     @IBAction func loginAction(_ sender: AnyObject) {
         
