@@ -238,9 +238,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dM9-jv-R61">
-                                <rect key="frame" x="130" y="318" width="116" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="miK-Zi-OKL">
+                                <rect key="frame" x="16" y="28" width="343" height="305"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ncm-W7-431">
+                                <rect key="frame" x="16" y="341" width="343" height="216"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dM9-jv-R61">
+                                <rect key="frame" x="16" y="565" width="343" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="rLn-IF-uWw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Request Booking"/>
                                 <connections>
                                     <action selector="requestBooking:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="ULV-iC-Owd"/>
@@ -248,12 +260,31 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dM9-jv-R61" firstAttribute="top" secondItem="miK-Zi-OKL" secondAttribute="bottom" constant="232" id="0RG-SW-tLT"/>
+                            <constraint firstItem="Ncm-W7-431" firstAttribute="top" secondItem="miK-Zi-OKL" secondAttribute="bottom" constant="8" id="2vR-aj-myh"/>
+                            <constraint firstItem="miK-Zi-OKL" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" id="5bJ-ga-0v4"/>
+                            <constraint firstItem="Ncm-W7-431" firstAttribute="trailing" secondItem="dM9-jv-R61" secondAttribute="trailing" id="K4U-ZY-CuJ"/>
+                            <constraint firstItem="miK-Zi-OKL" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="MSz-27-2nH"/>
+                            <constraint firstItem="miK-Zi-OKL" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="RuF-x8-2Ya"/>
+                            <constraint firstItem="miK-Zi-OKL" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" id="TO2-K0-n4b"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="dM9-jv-R61" secondAttribute="bottom" constant="8" id="VZO-ac-QPM"/>
+                            <constraint firstItem="miK-Zi-OKL" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="Yjg-pe-tw2"/>
+                            <constraint firstItem="dM9-jv-R61" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="pqd-Pw-Z4Y"/>
+                            <constraint firstItem="Ncm-W7-431" firstAttribute="leading" secondItem="dM9-jv-R61" secondAttribute="leading" id="rYJ-Xj-pvW"/>
+                            <constraint firstItem="miK-Zi-OKL" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="tMF-R8-fKH"/>
+                            <constraint firstItem="dM9-jv-R61" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="yxi-1p-Lq1"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Book Now!" image="second" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="miK-Zi-OKL" id="kbF-LH-3uS"/>
+                        <outlet property="myPicker" destination="Ncm-W7-431" id="w1X-za-idB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
         </scene>
         <!--Complete Sign Up View Controller-->
         <scene sceneID="iZA-05-uFo">

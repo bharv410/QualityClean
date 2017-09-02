@@ -11,8 +11,16 @@ import Firebase
 import FirebaseDatabase
 import DateTimePicker
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
+    
+    let pickerData = [
+        ["Book Once","Weekly","Every Other Week","Monthly"]
+    ]
+    
+    @IBOutlet weak var myPicker: UIPickerView!
+    
+    @IBOutlet weak var dateLabel: UILabel!
     
     var ref: DatabaseReference!
     @IBOutlet var user = Auth.auth().currentUser
@@ -22,6 +30,8 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        myPicker.delegate = self
+        myPicker.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +39,15 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func pickerView(
+        pickerView: UIPickerView,
+        didSelectRow row: Int,
+        inComponent component: Int)
+    {
+        updateLabel()
+    }
+    
+    
     @IBAction func requestBooking(_ sender: Any) {
         
         
@@ -39,6 +58,14 @@ class SecondViewController: UIViewController {
             self.reguestBooking(date: date)
         }
     }
+    
+    //MARK - Instance Methods
+    func updateLabel(){
+//        let size = pickerData[0][myPicker.selectedRowInComponent(0)]
+//        let topping = pickerData[1][myPicker.selectedRowInComponent(1)]
+//        pizzaLabel.text = "Pizza: " + size + " " + topping
+    }
+    
 
     func reguestBooking(date: Date){
         let dateFormatter = DateFormatter()
@@ -71,9 +98,29 @@ class SecondViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Great!", style: UIAlertActionStyle.default, handler: nil))
         
         self.present(alert, animated: true) {
-            
+            self.dateLabel.text = bookingDateString
             print("done")
         }
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return pickerData.count
+    }
+    
+    
+    func pickerView(_
+        pickerView: UIPickerView,
+                    titleForRow row: Int,
+                    forComponent component: Int
+        ) -> String? {
+        return pickerData[component][row]
+    }
+    
+    func pickerView(_
+        pickerView: UIPickerView,
+                    numberOfRowsInComponent component: Int
+        ) -> Int {
+        return pickerData[component].count
     }
     
     private func callNumber(phoneNumber:String) {
