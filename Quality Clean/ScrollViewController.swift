@@ -11,15 +11,22 @@ import FirebaseDatabase
 import FirebaseAuth
 
 
-class ScrollViewController: UIViewController {
+class ScrollViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var ref: DatabaseReference!
     @IBOutlet var user = Auth.auth().currentUser
     
+    var fruits = [""]
+
+    
+    @IBOutlet weak var tableVie: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-
+        self.tableVie.delegate = self
+        self.tableVie.dataSource = self
+        
         // Do any additional setup after loading the view.
         print("here")
         
@@ -51,8 +58,12 @@ class ScrollViewController: UIViewController {
                 
                 newItems.append(String(describing: item))
             }
-        })
-        
+            self.fruits = newItems
+            self.tableVie.reloadData()
+
+        }
+        )
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,4 +82,28 @@ class ScrollViewController: UIViewController {
     }
     */
 
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("section: \(indexPath.section)")
+        print("row: \(indexPath.row)")
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fruits.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
+        
+        cell.textLabel?.text = fruits[indexPath.row]
+        
+        return cell
+    }
 }
