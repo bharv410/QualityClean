@@ -11,15 +11,10 @@ import Firebase
 import FirebaseDatabase
 import DateTimePicker
 
-class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class SecondViewController: UIViewController {
 
-    
-    let pickerData = [
-        ["Book Once","Weekly","Every Other Week","Monthly"]
-    ]
-    
-    @IBOutlet weak var myPicker: UIPickerView!
-    
+
+    @IBOutlet weak var frequencyLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
     var ref: DatabaseReference!
@@ -30,8 +25,8 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-        myPicker.delegate = self
-        myPicker.dataSource = self
+        
+        
         chooseDate()
     }
 
@@ -65,17 +60,21 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
             dateFormatter.timeStyle = .short
             dateFormatter.doesRelativeDateFormatting = true
             
-            self.dateLabel.text = dateFormatter.string(from: date)
+            self.dateLabel.text = "When?: " + dateFormatter.string(from: date)
             
             let pickerData = [
-                ["value": "mile", "display": "Miles (mi)"],
-                ["value": "kilometer", "display": "Kilometers (km)"]
+                ["value": "once", "display": "Just this once"],
+                ["value": "weekly", "display": "Weekly"],
+                ["value": "biweekly", "display": "Every other week"],
+                ["value": "Monthly", "display": "Monthly"]
             ]
             
             PickerDialog().show("Distance units", options: pickerData, selected: "kilometer") {
                 (value) -> Void in
                 
                 print("Unit selected: \(value)")
+                
+                self.frequencyLabel.text = " \(value)"
             }
             
             
@@ -121,29 +120,9 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         alert.addAction(UIAlertAction(title: "Great!", style: UIAlertActionStyle.default, handler: nil))
         
         self.present(alert, animated: true) {
-            self.dateLabel.text = bookingDateString
+            self.dateLabel.text = "When?: " + bookingDateString
             print("done")
         }
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return pickerData.count
-    }
-    
-    
-    func pickerView(_
-        pickerView: UIPickerView,
-                    titleForRow row: Int,
-                    forComponent component: Int
-        ) -> String? {
-        return pickerData[component][row]
-    }
-    
-    func pickerView(_
-        pickerView: UIPickerView,
-                    numberOfRowsInComponent component: Int
-        ) -> Int {
-        return pickerData[component].count
     }
     
     private func callNumber(phoneNumber:String) {
