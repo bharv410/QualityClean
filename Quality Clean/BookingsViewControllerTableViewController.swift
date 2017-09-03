@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import DGElasticPullToRefresh
 
 class BookingsViewControllerTableViewController: UITableViewController {
     
@@ -18,16 +19,32 @@ class BookingsViewControllerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        
+        addRefresh()
+    }
+    
+    func addRefresh(){
+        let loadingView = DGElasticPullToRefreshLoadingViewCircle()
+        loadingView.tintColor = UIColor(red: 192/255.0, green: 216/255.0, blue: 144/255.0, alpha: 1.0)
+        tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+            self?.fetchData()
+            }, loadingView: loadingView)
+        self.tableView.dg_setPullToRefreshFillColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0))
+        self.tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
+    }
+    
+    deinit {
+        tableView.dg_removePullToRefresh()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        fetchData()
+        //fetchData()
     }
 
     // MARK: - UITableViewDataSource
     
     
-    var fruits = [""]
+    var fruits = ["1", "2", "3","4"]
     
     func fetchData(){
         let pastBookingsRef = ref.child("bookings").child((user?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -45,6 +62,7 @@ class BookingsViewControllerTableViewController: UITableViewController {
             self.fruits = newItems
             // reload the UITableView
             self.tableView.reloadData()
+            self.tableView.dg_stopLoading()
             
             
             if(self.fruits.count<1){
@@ -69,10 +87,10 @@ class BookingsViewControllerTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! BookingsCellTableViewCell
         
         cell.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
-        cell.textLabel?.text = fruits[indexPath.row]
+        cell.cellLabel?.text = fruits[indexPath.row]
         
         return cell
     }

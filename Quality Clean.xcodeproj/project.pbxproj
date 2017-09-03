@@ -10,6 +10,7 @@
 		304E38F77457A61E1DE1B11E /* Pods_Quality_Clean.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBC8E16BDFBE897656049B2 /* Pods_Quality_Clean.framework */; };
 		69102E7C1F5B83CD00685760 /* avatar-overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69102E7A1F5B83CD00685760 /* avatar-overlay@2x.png */; };
 		69102E7D1F5B83CD00685760 /* avatar-overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 69102E7B1F5B83CD00685760 /* avatar-overlay.png */; };
+		69102E831F5B9DA300685760 /* BookingsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69102E821F5B9DA300685760 /* BookingsCellTableViewCell.swift */; };
 		6923D3B41F4F8C75006D0FA1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923D3B31F4F8C75006D0FA1 /* Constants.swift */; };
 		6929554F1F5A57D20034CBB5 /* PickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6929554E1F5A57D20034CBB5 /* PickerDialog.swift */; };
 		6956B5FF1F5AF808003E810C /* placeholderhome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6956B5FE1F5AF808003E810C /* placeholderhome.jpg */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		69102E7A1F5B83CD00685760 /* avatar-overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-overlay@2x.png"; sourceTree = "<group>"; };
 		69102E7B1F5B83CD00685760 /* avatar-overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-overlay.png"; sourceTree = "<group>"; };
+		69102E821F5B9DA300685760 /* BookingsCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingsCellTableViewCell.swift; sourceTree = "<group>"; };
 		6923D3B31F4F8C75006D0FA1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6929554E1F5A57D20034CBB5 /* PickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerDialog.swift; sourceTree = "<group>"; };
 		6956B5FE1F5AF808003E810C /* placeholderhome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholderhome.jpg; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				69F452C81F50F8DE00D78E45 /* BookingsViewControllerTableViewController.swift */,
 				696160F11F51E9F1009133F6 /* ScrollViewController.swift */,
 				6956B6001F5AFA4D003E810C /* BookingDetailViewController.swift */,
+				69102E821F5B9DA300685760 /* BookingsCellTableViewCell.swift */,
 			);
 			path = "Quality Clean";
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Quality Clean/Pods-Quality Clean-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DGElasticPullToRefresh/DGElasticPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/DateTimePicker/DateTimePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -294,6 +298,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DGElasticPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTimePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -323,6 +328,7 @@
 				6923D3B41F4F8C75006D0FA1 /* Constants.swift in Sources */,
 				696160F21F51E9F1009133F6 /* ScrollViewController.swift in Sources */,
 				69D116761F4F967C004BE063 /* CompleteSignUpViewController.swift in Sources */,
+				69102E831F5B9DA300685760 /* BookingsCellTableViewCell.swift in Sources */,
 				69F452C91F50F8DE00D78E45 /* BookingsViewControllerTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

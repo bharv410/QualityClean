@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
-
+import DGElasticPullToRefresh
 
 class ScrollViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -21,15 +21,21 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableVie: UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
         self.tableVie.delegate = self
         self.tableVie.dataSource = self
         
+        addRefresh()
         // Do any additional setup after loading the view.
         print("here")
         
+        getBookings()
+    }
+    
+    func getBookings(){
         let imageName = "owl.jpg"
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image!)
@@ -52,7 +58,7 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
                 let name = dict["accepted"]
                 let food = dict["booking_date"]
                 
-                print("\(name) loves \(food)")
+                print("\(String(describing: name)) loves \(String(describing: food))")
                 
                 
                 
@@ -60,9 +66,10 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
             }
             self.fruits = newItems
             self.tableVie.reloadData()
-
+            self.tableVie.dg_stopLoading()
         }
         )
+        
 
     }
 
@@ -71,6 +78,19 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    func addRefresh(){
+        let loadingView = DGElasticPullToRefreshLoadingViewCircle()
+        loadingView.tintColor = UIColor(red: 192/255.0, green: 216/255.0, blue: 144/255.0, alpha: 1.0)
+        self.tableVie.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+            self?.getBookings()
+            }, loadingView: loadingView)
+        self.tableVie.dg_setPullToRefreshFillColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0))
+        self.tableVie.dg_setPullToRefreshBackgroundColor(tableVie.backgroundColor!)
+    }
+    
+    deinit {
+        tableVie.dg_removePullToRefresh()
+    }
 
     /*
     // MARK: - Navigation
@@ -108,9 +128,9 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! BookingsCellTableViewCell
         
-        cell.textLabel?.text = fruits[indexPath.row]
+        cell.cellLabel?.text = fruits[indexPath.row]
         
         return cell
     }
