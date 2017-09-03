@@ -146,13 +146,10 @@ class SecondViewController: FormViewController {
             if let dt = self.cleanDateRow.value as? Date{
                 self.reguestBooking(date: self.cleanDateRow.value as! Date)
             }else{
-                let alert = UIAlertController(title: "Enter a date", message: bookingDateString, preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Enter a date", message: "You can't book a cleaning without choosing a date", preferredStyle: UIAlertControllerStyle.alert)
                 
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default) { (UIAlertAction) in
-                    self.dismiss(animated: true, completion: {
-                        
-                        
-                    })
+
                 })
                 
                 //self.dateLabel.text = "When?: " + bookingDateString
