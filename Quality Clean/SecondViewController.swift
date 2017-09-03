@@ -57,6 +57,42 @@ class SecondViewController: FormViewController {
         return true
     }
 
+    func reguestBooking(date: Date){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .short
+        dateFormatter.doesRelativeDateFormatting = true
+        
+        let bookingDateString = dateFormatter.string(from: date)
+        
+        let childRef = self.ref.child("bookings").childByAutoId()
+        childRef.child("accepted").setValue(false)
+        childRef.child("booking_date").setValue(bookingDateString)
+        childRef.child("customer").setValue(user?.uid){ (error, ref) -> Void in
+            self.successAlert(bookingDateString: bookingDateString)
+        }
+    }
+
+    func successAlert(bookingDateString: String){
+        let alert = UIAlertController(title: "You have succesfuly booked a cleaner for the below date! We will contact you within the hour with another confirmation", message: bookingDateString, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Yay!", style: UIAlertActionStyle.default) { (UIAlertAction) in
+            self.dismiss(animated: true, completion: {
+                
+                
+            })
+        })
+        
+        //self.dateLabel.text = "When?: " + bookingDateString
+        
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "BookingDetail") as! BookingDetailViewController
+//        vc.shouldShowClaimButton = false
+        self.present(alert, animated: true) {
+        }
+        
+    }
+
+    
     fileprivate func loadForm() {
         
         let form = FormDescriptor(title: "Cleaning Form")
@@ -66,6 +102,7 @@ class SecondViewController: FormViewController {
         let section1 = FormSectionDescriptor(headerTitle: "Finish Requesting Booking", footerTitle: nil)
         
         cleanDateRow.configuration.cell.showsInputToolbar = true
+
         section1.rows.append(cleanDateRow)
         
         
@@ -100,16 +137,37 @@ class SecondViewController: FormViewController {
         
         let section8 = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
         
-        row = FormRowDescriptor(tag: Static.button, type: .button, title: "Request")
+        row = FormRowDescriptor(tag: Static.button, type: .button, title: "Request Booking!")
         row.configuration.button.didSelectClosure = { _ in
             self.view.endEditing(true)
             print("done")
+            
+
+            if let dt = self.cleanDateRow.value as? Date{
+                self.reguestBooking(date: self.cleanDateRow.value as! Date)
+            }else{
+                let alert = UIAlertController(title: "Enter a date", message: bookingDateString, preferredStyle: UIAlertControllerStyle.alert)
+                
+                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default) { (UIAlertAction) in
+                    self.dismiss(animated: true, completion: {
+                        
+                        
+                    })
+                })
+                
+                //self.dateLabel.text = "When?: " + bookingDateString
+                
+                //        let vc = self.storyboard?.instantiateViewController(withIdentifier: "BookingDetail") as! BookingDetailViewController
+                //        vc.shouldShowClaimButton = false
+                self.present(alert, animated: true) {
+                }
+            }
         }
         section8.rows.append(row)
         
         row = FormRowDescriptor(tag: Static.button, type: .button, title: "Cancel")
         row.configuration.button.didSelectClosure = { _ in
-            self.dismiss(animated: true, completion: { 
+            self.dismiss(animated: true, completion: {
                 
                 
             })
@@ -155,7 +213,7 @@ class SecondViewController: FormViewController {
 //            dateFormatter.dateStyle = .long
 //            dateFormatter.timeStyle = .short
 //            dateFormatter.doesRelativeDateFormatting = true
-//            
+//
 //            //self.dateLabel.text = "When?: " + dateFormatter.string(from: date)
 //            
 //            let pickerData = [
@@ -182,38 +240,8 @@ class SecondViewController: FormViewController {
 //    }
 //    
 //
-//    func successAlert(bookingDateString: String){
-//        let alert = UIAlertController(title: "You have succesfuly booked a cleaner for the below date! We will contact you within the hour with another confirmation", message: bookingDateString, preferredStyle: UIAlertControllerStyle.alert)
-//        alert.addAction(UIAlertAction(title: "Great!", style: UIAlertActionStyle.default, handler: nil))
-//        
-//        self.dateLabel.text = "When?: " + bookingDateString
-//        
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "BookingDetail") as! BookingDetailViewController
-//        vc.shouldShowClaimButton = false
-//        self.present(vc, animated: true) {
-//            
-//            vc.present(alert, animated: true) {
-//                
-//            }
-//        }
-//    }
-//    
-//    func reguestBooking(date: Date){
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateStyle = .long
-//        dateFormatter.timeStyle = .short
-//        dateFormatter.doesRelativeDateFormatting = true
-//        
-//        let bookingDateString = dateFormatter.string(from: date)
-//    
-//        let childRef = self.ref.child("bookings").childByAutoId()
-//        childRef.child("accepted").setValue(false)
-//        childRef.child("booking_date").setValue(bookingDateString)
-//        childRef.child("customer").setValue(user?.uid){ (error, ref) -> Void in
-//            self.successAlert(bookingDateString: bookingDateString)
-//        }
-//    }
-//    
+//
+//
 //    private func callNumber(phoneNumber:String) {
 //        if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
 //            let application:UIApplication = UIApplication.shared

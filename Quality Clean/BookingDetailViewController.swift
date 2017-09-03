@@ -57,7 +57,10 @@ class BookingDetailViewController: UIViewController {
     @IBAction func onDismissClicked(_ sender: Any) {
         
         self.dismiss(animated: true) {
-            
+            self.presentingViewController?.dismiss(animated: true, completion: { 
+                
+                
+            })
             
         }
     }
