@@ -12,6 +12,7 @@ import Firebase
 import FirebaseDatabase
 import AVKit
 import AVFoundation
+import Floaty
 
 class FirstViewController: UIViewController {
     
@@ -55,6 +56,27 @@ class FirstViewController: UIViewController {
         setupImageView()
     }
     
+    func addFloaty(){
+        let floaty = Floaty()
+        floaty.buttonColor = UIColor.white
+        floaty.plusColor = UIColor(red: 192.0/255.0, green: 216.0/255.0, blue: 144.0/255.0, alpha: 1)
+        
+        floaty.addItem(title: "Logout") { (FloatyItem) in
+            self.logoutUser()
+        }
+        
+        floaty.addItem("Request A Cleaner", icon: UIImage(named: "icon")!, handler: { item in
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "BookNow") as! SecondViewController
+            
+            self.present(vc, animated: true, completion: {
+                
+            })
+            floaty.close()
+        })
+        
+        self.view.addSubview(floaty)
+    }
     func setupImageView(){
         profileImageView.layer.borderWidth = 1
         profileImageView.layer.masksToBounds = false
@@ -140,23 +162,11 @@ class FirstViewController: UIViewController {
             self.finishSignUp()
         }
         
-        if(!self.hasVid){
-            self.vidViewHolder.isHidden = true
-           scrollView.contentSize = CGSize(width: scrollView.contentSize.width,height: 1.0)
-
-        }
-        
-        if(self.isCleaner){
-            if let tabBarController = self.tabBarController {
-                let indexToRemove = 1
-                if indexToRemove < (tabBarController.viewControllers?.count)! {
-                    var viewControllers = tabBarController.viewControllers
-                    viewControllers?.remove(at: indexToRemove)
-                    tabBarController.viewControllers = viewControllers
-                }
+    
+            
+            if(!self.isCleaner){
+                addFloaty()
             }
-            
-            
 //            if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
 //                tabBarItem.isEnabled = false
 //            }
@@ -165,8 +175,13 @@ class FirstViewController: UIViewController {
             if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
                 tabBarItem.title = "Unaccepted"
             }
+            
+            if(!self.hasVid){
+                self.vidViewHolder.isHidden = true
+                scrollView.contentSize = CGSize(width: scrollView.contentSize.width,height: 1.0)
+                
+            }
         }
-    }
     
     func finishSignUp(){
         print("nil")

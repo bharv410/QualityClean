@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import DGElasticPullToRefresh
+import Floaty
 
 class ScrollViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -33,7 +34,25 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
         print("here")
         
         getBookings()
+        addFloaty()
     }
+    
+    func addFloaty(){
+        let floaty = Floaty()
+        floaty.buttonColor = UIColor.white
+        floaty.plusColor = UIColor(red: 192.0/255.0, green: 216.0/255.0, blue: 144.0/255.0, alpha: 1)
+        floaty.addItem("Request A Cleaner", icon: UIImage(named: "icon")!, handler: { item in
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "BookNow") as! SecondViewController
+            
+            self.present(vc, animated: true, completion: {
+                
+            })
+            floaty.close()
+        })
+        self.view.addSubview(floaty)
+    }
+    
     
     func getBookings(){
         let imageName = "owl.jpg"
