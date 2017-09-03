@@ -14,6 +14,7 @@ import Floaty
 
 class ScrollViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    var tbc = GlobalTabBarViewController()
     var ref: DatabaseReference!
     @IBOutlet var user = Auth.auth().currentUser
     
@@ -25,6 +26,7 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tbc = self.tabBarController as! GlobalTabBarViewController
         ref = Database.database().reference()
         self.tableVie.delegate = self
         self.tableVie.dataSource = self
@@ -34,7 +36,9 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
         print("here")
         
         getBookings()
-        addFloaty()
+        if(!self.tbc.isCleaner){
+            addFloaty()
+        }
     }
     
     func addFloaty(){

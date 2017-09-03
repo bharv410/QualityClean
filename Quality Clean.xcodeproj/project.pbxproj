@@ -13,6 +13,7 @@
 		69102E831F5B9DA300685760 /* BookingsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69102E821F5B9DA300685760 /* BookingsCellTableViewCell.swift */; };
 		6923D3B41F4F8C75006D0FA1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923D3B31F4F8C75006D0FA1 /* Constants.swift */; };
 		6929554F1F5A57D20034CBB5 /* PickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6929554E1F5A57D20034CBB5 /* PickerDialog.swift */; };
+		6954B68F1F5BCB64003610AD /* GlobalTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6954B68E1F5BCB64003610AD /* GlobalTabBarViewController.swift */; };
 		6956B5FF1F5AF808003E810C /* placeholderhome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6956B5FE1F5AF808003E810C /* placeholderhome.jpg */; };
 		6956B6011F5AFA4D003E810C /* BookingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6956B6001F5AFA4D003E810C /* BookingDetailViewController.swift */; };
 		6956B6031F5B0128003E810C /* o.png in Resources */ = {isa = PBXBuildFile; fileRef = 6956B6021F5B0128003E810C /* o.png */; };
@@ -44,6 +45,7 @@
 		69102E821F5B9DA300685760 /* BookingsCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingsCellTableViewCell.swift; sourceTree = "<group>"; };
 		6923D3B31F4F8C75006D0FA1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6929554E1F5A57D20034CBB5 /* PickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerDialog.swift; sourceTree = "<group>"; };
+		6954B68E1F5BCB64003610AD /* GlobalTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalTabBarViewController.swift; sourceTree = "<group>"; };
 		6956B5FE1F5AF808003E810C /* placeholderhome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholderhome.jpg; sourceTree = "<group>"; };
 		6956B6001F5AFA4D003E810C /* BookingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingDetailViewController.swift; sourceTree = "<group>"; };
 		6956B6021F5B0128003E810C /* o.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = o.png; sourceTree = "<group>"; };
@@ -138,7 +140,10 @@
 				69752EBD1F50C84C000B7859 /* images */,
 				69DAAF701F4F3333006E7CE3 /* SignUpViewController.swift */,
 				69DAAF5C1F4F2B46006E7CE3 /* AppDelegate.swift */,
+				6954B68E1F5BCB64003610AD /* GlobalTabBarViewController.swift */,
 				69DAAF5E1F4F2B46006E7CE3 /* FirstViewController.swift */,
+				69F452C81F50F8DE00D78E45 /* BookingsViewControllerTableViewController.swift */,
+				696160F11F51E9F1009133F6 /* ScrollViewController.swift */,
 				69D116751F4F967C004BE063 /* CompleteSignUpViewController.swift */,
 				69DAAF601F4F2B46006E7CE3 /* SecondViewController.swift */,
 				69DAAF621F4F2B46006E7CE3 /* Main.storyboard */,
@@ -148,8 +153,6 @@
 				69DAAF671F4F2B46006E7CE3 /* LaunchScreen.storyboard */,
 				69DAAF6A1F4F2B46006E7CE3 /* Info.plist */,
 				6923D3B31F4F8C75006D0FA1 /* Constants.swift */,
-				69F452C81F50F8DE00D78E45 /* BookingsViewControllerTableViewController.swift */,
-				696160F11F51E9F1009133F6 /* ScrollViewController.swift */,
 				6956B6001F5AFA4D003E810C /* BookingDetailViewController.swift */,
 				69102E821F5B9DA300685760 /* BookingsCellTableViewCell.swift */,
 			);
@@ -333,6 +336,7 @@
 				696160F21F51E9F1009133F6 /* ScrollViewController.swift in Sources */,
 				69D116761F4F967C004BE063 /* CompleteSignUpViewController.swift in Sources */,
 				69102E831F5B9DA300685760 /* BookingsCellTableViewCell.swift in Sources */,
+				6954B68F1F5BCB64003610AD /* GlobalTabBarViewController.swift in Sources */,
 				69F452C91F50F8DE00D78E45 /* BookingsViewControllerTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

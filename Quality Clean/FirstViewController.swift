@@ -43,14 +43,16 @@ class FirstViewController: UIViewController {
     var player: AVPlayer!
     var avpController = AVPlayerViewController()
     
-    var isCleaner = false
     var completedSignup = false
     var hasVid = false
     
     var originalScrollSize = CGSize()
     
+    var tbc = GlobalTabBarViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tbc = self.tabBarController as! GlobalTabBarViewController
         ref = Database.database().reference()
         fetchUserData()
         setupImageView()
@@ -94,11 +96,11 @@ class FirstViewController: UIViewController {
                         let userTypeString = userType as! String
                         if((userTypeString == "customer")){
                             self.completedSignup = true
-                            self.isCleaner = false
+                            self.tbc.isCleaner = false
                         }
                         if(userTypeString == "cleaner"){
                             self.completedSignup = true
-                            self.isCleaner = true
+                            self.tbc.isCleaner = true
                         }
                     }
 
@@ -126,7 +128,7 @@ class FirstViewController: UIViewController {
                         self.homeTypeLabel.text = address as! String
                     }
                     
-                    if(self.isCleaner){
+                    if(self.tbc.isCleaner){
                     if let video = thisUserObject["video"]{
                         self.hasVid = true
                         let url = URL(string:video as! String)
@@ -164,7 +166,7 @@ class FirstViewController: UIViewController {
         
     
             
-            if(!self.isCleaner){
+            if(!tbc.isCleaner){
                 addFloaty()
             }
 //            if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {

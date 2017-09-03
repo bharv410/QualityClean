@@ -16,13 +16,18 @@ class BookingsViewControllerTableViewController: UITableViewController {
     
     var ref: DatabaseReference!
     @IBOutlet var user = Auth.auth().currentUser
-    
+    var tbc = GlobalTabBarViewController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        tbc = self.tabBarController as! GlobalTabBarViewController
         ref = Database.database().reference()
         
         addRefresh()
-        addFloaty()
+        if(!self.tbc.isCleaner){
+            addFloaty()
+        }
+
     }
     
     func addFloaty(){
