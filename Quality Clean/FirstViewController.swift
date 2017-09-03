@@ -51,8 +51,16 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-        //originalScrollSize = scrollView.contentSize
         fetchUserData()
+        setupImageView()
+    }
+    
+    func setupImageView(){
+        profileImageView.layer.borderWidth = 1
+        profileImageView.layer.masksToBounds = false
+        profileImageView.layer.borderColor = UIColor.black.cgColor
+        profileImageView.layer.cornerRadius = profileImageView.frame.height/2
+        profileImageView.clipsToBounds = true
     }
     
     func fetchUserData(){
@@ -272,7 +280,7 @@ class FirstViewController: UIViewController {
             print(response?.suggestedFilename ?? url.lastPathComponent)
             print("Download Finished")
             DispatchQueue.main.async() { () -> Void in
-                self.profileImageView.image = UIImage(data: data)
+                self.profileImageView.maskCircle(anyImage: UIImage(data: data)!)
                 print("updated photo")
             }
         }
@@ -298,5 +306,19 @@ extension UIImageView {
     func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
         guard let url = URL(string: link) else { return }
         downloadedFrom(url: url, contentMode: mode)
+    }
+}
+
+extension UIImageView {
+    public func maskCircle(anyImage: UIImage) {
+        self.contentMode = UIViewContentMode.scaleAspectFill
+        self.layer.cornerRadius = self.frame.height / 2
+        self.layer.masksToBounds = false
+        self.clipsToBounds = true
+        
+        // make square(* must to make circle),
+        // resize(reduce the kilobyte) and
+        // fix rotation.
+        self.image = anyImage
     }
 }

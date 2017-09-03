@@ -51,7 +51,7 @@
                                                     <constraint firstAttribute="width" constant="90" id="0dQ-2i-KX4"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar-overlay.png" translatesAutoresizingMaskIntoConstraints="NO" id="Srf-lj-xOl">
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar-overlay.png" translatesAutoresizingMaskIntoConstraints="NO" id="Srf-lj-xOl">
                                                 <rect key="frame" x="142.5" y="60" width="90" height="90"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="90" id="C7g-bX-m3I"/>

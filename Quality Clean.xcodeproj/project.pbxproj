@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		304E38F77457A61E1DE1B11E /* Pods_Quality_Clean.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBC8E16BDFBE897656049B2 /* Pods_Quality_Clean.framework */; };
+		69102E7C1F5B83CD00685760 /* avatar-overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69102E7A1F5B83CD00685760 /* avatar-overlay@2x.png */; };
+		69102E7D1F5B83CD00685760 /* avatar-overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 69102E7B1F5B83CD00685760 /* avatar-overlay.png */; };
 		6923D3B41F4F8C75006D0FA1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923D3B31F4F8C75006D0FA1 /* Constants.swift */; };
 		6929554F1F5A57D20034CBB5 /* PickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6929554E1F5A57D20034CBB5 /* PickerDialog.swift */; };
 		6956B5FF1F5AF808003E810C /* placeholderhome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6956B5FE1F5AF808003E810C /* placeholderhome.jpg */; };
@@ -33,11 +35,11 @@
 		69F452C91F50F8DE00D78E45 /* BookingsViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F452C81F50F8DE00D78E45 /* BookingsViewControllerTableViewController.swift */; };
 		69F7EB501F5006A90098BF47 /* avatar-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F7EB4C1F5006A90098BF47 /* avatar-empty.png */; };
 		69F7EB511F5006A90098BF47 /* avatar-empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F7EB4D1F5006A90098BF47 /* avatar-empty@2x.png */; };
-		69F7EB521F5006A90098BF47 /* avatar-overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F7EB4E1F5006A90098BF47 /* avatar-overlay.png */; };
-		69F7EB531F5006A90098BF47 /* avatar-overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F7EB4F1F5006A90098BF47 /* avatar-overlay@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		69102E7A1F5B83CD00685760 /* avatar-overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-overlay@2x.png"; sourceTree = "<group>"; };
+		69102E7B1F5B83CD00685760 /* avatar-overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-overlay.png"; sourceTree = "<group>"; };
 		6923D3B31F4F8C75006D0FA1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6929554E1F5A57D20034CBB5 /* PickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerDialog.swift; sourceTree = "<group>"; };
 		6956B5FE1F5AF808003E810C /* placeholderhome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholderhome.jpg; sourceTree = "<group>"; };
@@ -65,8 +67,6 @@
 		69F452C81F50F8DE00D78E45 /* BookingsViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingsViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		69F7EB4C1F5006A90098BF47 /* avatar-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-empty.png"; sourceTree = "<group>"; };
 		69F7EB4D1F5006A90098BF47 /* avatar-empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-empty@2x.png"; sourceTree = "<group>"; };
-		69F7EB4E1F5006A90098BF47 /* avatar-overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-overlay.png"; sourceTree = "<group>"; };
-		69F7EB4F1F5006A90098BF47 /* avatar-overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-overlay@2x.png"; sourceTree = "<group>"; };
 		6A60A0633CC6975A39E0478E /* Pods-Quality Clean.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quality Clean.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quality Clean/Pods-Quality Clean.debug.xcconfig"; sourceTree = "<group>"; };
 		9743DBF875DC5A2F22730220 /* Pods-Quality Clean.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quality Clean.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quality Clean/Pods-Quality Clean.release.xcconfig"; sourceTree = "<group>"; };
 		9CBC8E16BDFBE897656049B2 /* Pods_Quality_Clean.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quality_Clean.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +95,8 @@
 		69752EBD1F50C84C000B7859 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				69102E7A1F5B83CD00685760 /* avatar-overlay@2x.png */,
+				69102E7B1F5B83CD00685760 /* avatar-overlay.png */,
 				6993EBB01F5B61D4002C8965 /* rocket.png */,
 				6993EBA81F5B6066002C8965 /* icons8-User-50.png */,
 				6956B6021F5B0128003E810C /* o.png */,
@@ -103,8 +105,6 @@
 				69C52DD61F53539000E4E9C9 /* icon.png */,
 				69F7EB4C1F5006A90098BF47 /* avatar-empty.png */,
 				69F7EB4D1F5006A90098BF47 /* avatar-empty@2x.png */,
-				69F7EB4E1F5006A90098BF47 /* avatar-overlay.png */,
-				69F7EB4F1F5006A90098BF47 /* avatar-overlay@2x.png */,
 				699CCA371F4FF1610089D45B /* owl.jpg */,
 			);
 			name = images;
@@ -225,20 +225,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69F7EB531F5006A90098BF47 /* avatar-overlay@2x.png in Resources */,
 				69DAAF691F4F2B46006E7CE3 /* LaunchScreen.storyboard in Resources */,
 				6956B5FF1F5AF808003E810C /* placeholderhome.jpg in Resources */,
 				69F7EB511F5006A90098BF47 /* avatar-empty@2x.png in Resources */,
 				699CCA381F4FF1610089D45B /* owl.jpg in Resources */,
-				69F7EB521F5006A90098BF47 /* avatar-overlay.png in Resources */,
 				6993EBB11F5B61D4002C8965 /* rocket.png in Resources */,
 				69DAAF731F4F3385006E7CE3 /* GoogleService-Info.plist in Resources */,
 				6956B6031F5B0128003E810C /* o.png in Resources */,
+				69102E7D1F5B83CD00685760 /* avatar-overlay.png in Resources */,
 				69C52DD91F5353BC00E4E9C9 /* transparenticon.png in Resources */,
 				69C52DD71F53539000E4E9C9 /* icon.png in Resources */,
 				69DAAF661F4F2B46006E7CE3 /* Assets.xcassets in Resources */,
 				6993EBA91F5B6066002C8965 /* icons8-User-50.png in Resources */,
 				69F7EB501F5006A90098BF47 /* avatar-empty.png in Resources */,
+				69102E7C1F5B83CD00685760 /* avatar-overlay@2x.png in Resources */,
 				69DAAF641F4F2B46006E7CE3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

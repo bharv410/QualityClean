@@ -54,6 +54,14 @@ class CompleteSignUpViewController : UIViewController {
         
     }
     
+    func setupImageView(){
+        imageView.layer.borderWidth = 1
+        imageView.layer.masksToBounds = false
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.cornerRadius = imageView.frame.height/2
+        imageView.clipsToBounds = true
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
@@ -211,6 +219,7 @@ class CompleteSignUpViewController : UIViewController {
     }
     
     func initialSetup(){
+        setupImageView()
         ref = Database.database().reference()
         userRef = self.ref.child("users").childByAutoId()
         

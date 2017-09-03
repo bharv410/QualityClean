@@ -12,43 +12,19 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
-
-    //Outlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
 
-
-    
-    
     override func viewDidLoad() {
-        //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-        //tap.cancelsTouchesInView = false
-        
-        view.addGestureRecognizer(tap)
-        
+        addDismissKeyboardTapGestureRecog()
     }
     
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
     
-    //Login Action
     @IBAction func loginAction(_ sender: AnyObject) {
         
         if self.emailTextField.text == "" || self.passwordTextField.text == "" {
             
-            //Alert to tell the user that there was an error because they didn't fill anything in the textfields because they didn't fill anything in
-            
-            let alertController = UIAlertController(title: "Error", message: "Please enter an email and password.", preferredStyle: .alert)
-            
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
-            
-            self.present(alertController, animated: true, completion: nil)
+            showEmailPWError()
         
         } else {
             
@@ -56,27 +32,47 @@ class LoginViewController: UIViewController {
                 
                 if error == nil {
                     
-                    //Print into the console if successfully logged in
-                    print("You have successfully logged in")
-                    
-                    UserDefaults.standard.setValue(user?.uid, forKey: "uid")
-
-                    
-                    //Go to the HomeViewController if the login is sucessful
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                    self.present(vc!, animated: true, completion: nil)
+                    self.renderSuccess(string: (user?.uid)!)
                     
                 } else {
                     
-                    //Tells the user that there is an error and then gets firebase to tell them the error
-                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
-                    
-                    self.present(alertController, animated: true, completion: nil)
+                    self.renderUnknownError(error: (error?.localizedDescription)!)
                 }
             }
         }
+    }
+    
+    func addDismissKeyboardTapGestureRecog(){
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func renderUnknownError(error: String){
+        let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func renderSuccess(string: String){
+        UserDefaults.standard.setValue(string, forKey: "uid")
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+        self.present(vc!, animated: true, completion: nil)
+    }
+    
+    func showEmailPWError(){
+        let alertController = UIAlertController(title: "Error", message: "Please enter an email and password.", preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }
