@@ -30,22 +30,12 @@ class SecondViewController: UIViewController {
         chooseDate()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     func pickerView(pickerView: UIPickerView,didSelectRow row: Int,inComponent component: Int){updateLabel()
     }
     
     
     @IBAction func requestBooking(_ sender: Any) {
-        
-        
-        
-        
         self.reguestBooking(date: self.chosenDate)
-
     }
     
     func chooseDate(){
@@ -93,46 +83,15 @@ class SecondViewController: UIViewController {
         }
     }
     
-    //MARK - Instance Methods
     func updateLabel(){
-//        let size = pickerData[0][myPicker.selectedRowInComponent(0)]
-//        let topping = pickerData[1][myPicker.selectedRowInComponent(1)]
-//        pizzaLabel.text = "Pizza: " + size + " " + topping
     }
     
 
-    func reguestBooking(date: Date){
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
-        dateFormatter.timeStyle = .short
-        dateFormatter.doesRelativeDateFormatting = true
-        
-        let bookingDateString = dateFormatter.string(from: date)
-        
-        
-        
-        
-
-        
-        let childRef = self.ref.child("bookings").childByAutoId()
-        
-        
-        
-        
-        childRef.child("accepted").setValue(false)
-        childRef.child("booking_date").setValue(bookingDateString)
-        childRef.child("customer").setValue(user?.uid){ (error, ref) -> Void in
-            print("done")
-        }
-
-        
-        
-        
+    func successAlert(bookingDateString: String){
         let alert = UIAlertController(title: "You have succesfuly booked a cleaner for the below date! We will contact you within the hour with another confirmation", message: bookingDateString, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Great!", style: UIAlertActionStyle.default, handler: nil))
         
         self.dateLabel.text = "When?: " + bookingDateString
-        print("done")
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "BookingDetail") as! BookingDetailViewController
         vc.shouldShowClaimButton = false
@@ -142,13 +101,26 @@ class SecondViewController: UIViewController {
                 
             }
         }
+    }
+    
+    func reguestBooking(date: Date){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .short
+        dateFormatter.doesRelativeDateFormatting = true
         
+        let bookingDateString = dateFormatter.string(from: date)
+    
+        let childRef = self.ref.child("bookings").childByAutoId()
+        childRef.child("accepted").setValue(false)
+        childRef.child("booking_date").setValue(bookingDateString)
+        childRef.child("customer").setValue(user?.uid){ (error, ref) -> Void in
+            self.successAlert(bookingDateString: bookingDateString)
+        }
     }
     
     private func callNumber(phoneNumber:String) {
-        
         if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
-            
             let application:UIApplication = UIApplication.shared
             if (application.canOpenURL(phoneCallURL)) {
                 application.open(phoneCallURL, options: [:], completionHandler: nil)
