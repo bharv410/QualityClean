@@ -18,6 +18,9 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
     var ref: DatabaseReference!
     @IBOutlet var user = Auth.auth().currentUser
     
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    
     var fruits = [""]
 
     
@@ -59,9 +62,9 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func getBookings(){
-        let imageName = "owl.jpg"
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image!)
+//        let imageName = "owl.jpg"
+//        let image = UIImage(named: imageName)
+//        let imageView = UIImageView(image: image!)
         
         
         
@@ -78,14 +81,21 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
                 
                 let dict = snap.value as! [String: Any] // the value is a dict
                 
-                let name = dict["accepted"]
+                let accepted = dict["accepted"] as! BooleanLiteralType
                 let food = dict["booking_date"]
+                let uid  = dict["customer"] as! String
                 
-                print("\(String(describing: name)) loves \(String(describing: food))")
+                print("\(String(describing: accepted)) loves \(String(describing: food))")
+                
+                if(self.tbc.isCleaner && !accepted){
+                    newItems.append(food as! String)
+                    self.titleLabel.text = "Unaccepted Bookings"
+                }
                 
                 
-                
-                newItems.append(food as! String)
+                if((!self.tbc.isCleaner) && (uid == self.user?.uid)){
+                    newItems.append(food as! String)
+                }
             }
             self.fruits = newItems
             self.tableVie.reloadData()

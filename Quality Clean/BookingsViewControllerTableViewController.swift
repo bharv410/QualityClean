@@ -61,13 +61,13 @@ class BookingsViewControllerTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //fetchData()
+        fetchData()
     }
 
     // MARK: - UITableViewDataSource
     
     
-    var fruits = ["1", "2", "3","4"]
+    var fruits = [""]
     
     func fetchData(){
         let pastBookingsRef = ref.child("bookings").child((user?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -78,8 +78,22 @@ class BookingsViewControllerTableViewController: UITableViewController {
             
             // loop through the children and append them to the new array
             for item in snapshot.children {
-                newItems.append(String(describing: item))
+                
+                let snap = item as! DataSnapshot //each child is a snapshot
+                
+                let dict = snap.value as! [String: Any] // the value is a dict
+                
+                let accepted = dict["accepted"] as! BooleanLiteralType
+                let food = dict["booking_date"]
+                let uid  = dict["customer"] as! String
+                
+
+                
+                if((!self.tbc.isCleaner) && (uid == self.user?.uid)){
+                    newItems.append(food as! String)
+                }
             }
+            
             
             // replace the old array
             self.fruits = newItems
