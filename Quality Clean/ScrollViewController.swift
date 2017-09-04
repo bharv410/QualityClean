@@ -42,6 +42,8 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
         if(!self.tbc.isCleaner){
             addFloaty()
         }
+        
+        self.navigationItem.title = "Unaccepted Bookings"
     }
     
     func addFloaty(){

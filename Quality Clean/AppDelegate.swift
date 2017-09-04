@@ -22,6 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UITabBar.appearance().unselectedItemTintColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
 
+        
+        UINavigationBar.appearance().tintColor = UIColor(red: 192.0/255.0, green: 216.0/255.0, blue: 144.0/255.0, alpha: 1)
+
+        UINavigationBar.appearance().barTintColor = UIColor.darkGray
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor(red: 192.0/255.0, green: 216.0/255.0, blue: 144.0/255.0, alpha: 1)]
 
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

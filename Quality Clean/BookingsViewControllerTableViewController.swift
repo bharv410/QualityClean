@@ -11,8 +11,9 @@ import FirebaseDatabase
 import FirebaseAuth
 import DGElasticPullToRefresh
 import Floaty
+import UIEmptyState
 
-class BookingsViewControllerTableViewController: UITableViewController {
+class BookingsViewControllerTableViewController: UITableViewController, UIEmptyStateDataSource, UIEmptyStateDelegate  {
     
     var ref: DatabaseReference!
     @IBOutlet var user = Auth.auth().currentUser
@@ -20,6 +21,10 @@ class BookingsViewControllerTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.emptyStateDataSource = self
+        self.emptyStateDelegate = self
+        // Optionally remove seperator lines from empty cells
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         tbc = self.tabBarController as! GlobalTabBarViewController
         ref = Database.database().reference()
         
@@ -27,7 +32,12 @@ class BookingsViewControllerTableViewController: UITableViewController {
         if(!self.tbc.isCleaner){
             addFloaty()
         }
+        self.navigationItem.title = "History"
 
+    }
+    
+    func done() {
+        
     }
     
     func addFloaty(){
@@ -61,6 +71,7 @@ class BookingsViewControllerTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+
         fetchData()
     }
 
@@ -98,23 +109,20 @@ class BookingsViewControllerTableViewController: UITableViewController {
             // replace the old array
             self.fruits = newItems
             // reload the UITableView
-            self.tableView.reloadData()
-            self.tableView.dg_stopLoading()
+            self.updateTable()
             
-            
-            if(self.fruits.count<1){
-                let alert = UIAlertController(title: "No past bookings", message: "Almost there!", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Okay!", style: UIAlertActionStyle.default, handler: nil))
-                
-                self.present(alert, animated: true) {
-                    
-                    print(self.user?.email)
-                }
-            }
             
             
         })
     }
+    
+    func updateTable(){
+        self.tableView.reloadData()
+        self.tableView.dg_stopLoading()
+        self.reloadEmptyState()
+    }
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

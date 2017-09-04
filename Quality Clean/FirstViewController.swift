@@ -19,23 +19,7 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet var user = Auth.auth().currentUser
     @IBOutlet weak var jobsLabel: UILabel!
-    @IBOutlet weak var vidViewHolder: UIView!
-    
-    @IBOutlet weak var callUsNowButton: UIButton!
-    
-    @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var bedBathLabel: UILabel!
-    
-    @IBOutlet weak var emailLabel: UILabel!
-    
-    @IBOutlet weak var fullNameLabel: UILabel!
-    
-    @IBOutlet weak var homeTypeLabel: UILabel!
-    
     @IBOutlet weak var scrollViewContentView: UIView!
-    
-    @IBOutlet weak var phoneNumberLabel: UILabel!
-    
     @IBOutlet weak var profileImageView: UIImageView!
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -56,7 +40,15 @@ class FirstViewController: UIViewController {
         ref = Database.database().reference()
         fetchUserData()
         setupImageView()
+        
+        self.navigationItem.title = "My Profile"
+
     }
+    
+    func done() {
+        
+    }
+    
     
     func addFloaty(){
         let floaty = Floaty()
@@ -103,44 +95,44 @@ class FirstViewController: UIViewController {
                             self.tbc.isCleaner = true
                         }
                     }
-
-                    if let bedBath = thisUserObject["bed_bath"]{
-                        self.bedBathLabel.text = bedBath as! String
-                    }
-                    
-                    if let email = thisUserObject["email"]{
-                        self.emailLabel.text = email as! String
-                    }
-                    
-                    if let address = thisUserObject["address"]{
-                        self.addressLabel.text = address as! String
-                    }
-                    
+//
+//                    if let bedBath = thisUserObject["bed_bath"]{
+//                        self.bedBathLabel.text = bedBath as! String
+//                    }
+//                    
+//                    if let email = thisUserObject["email"]{
+//                        self.emailLabel.text = email as! String
+//                    }
+//                    
+//                    if let address = thisUserObject["address"]{
+//                        self.addressLabel.text = address as! String
+//                    }
+//                    
                     if let fullName = thisUserObject["full_name"]{
                         self.jobsLabel.text = fullName as! String
                     }
                     
-                    if let phoneNum = thisUserObject["phone_number"]{
-                        self.phoneNumberLabel.text = phoneNum as! String
-                    }
-                    
-                    if let address = thisUserObject["home_type"]{
-                        self.homeTypeLabel.text = address as! String
-                    }
-                    
+//                    if let phoneNum = thisUserObject["phone_number"]{
+//                        self.phoneNumberLabel.text = phoneNum as! String
+//                    }
+//                    
+//                    if let address = thisUserObject["home_type"]{
+//                        self.homeTypeLabel.text = address as! String
+//                    }
+//                    
                     if(self.tbc.isCleaner){
-                    if let video = thisUserObject["video"]{
-                        self.hasVid = true
-                        let url = URL(string:video as! String)
-                        self.player = AVPlayer(url: url!)
-                        self.avpController = AVPlayerViewController()
-                        self.avpController.player = self.player
-                        self.avpController.view.frame = self.vidViewHolder.frame
-                        self.addChildViewController(self.avpController)
-                        self.scrollViewContentView.addSubview(self.avpController.view)
-                        //self.scrollView.contentSize = self.originalScrollSize
-
-                        }
+//                    if let video = thisUserObject["video"]{
+//                        self.hasVid = true
+//                        let url = URL(string:video as! String)
+//                        self.player = AVPlayer(url: url!)
+//                        self.avpController = AVPlayerViewController()
+//                        self.avpController.player = self.player
+//                        self.avpController.view.frame = self.vidViewHolder.frame
+//                        self.addChildViewController(self.avpController)
+//                        self.scrollViewContentView.addSubview(self.avpController.view)
+//                        //self.scrollView.contentSize = self.originalScrollSize
+//
+//                        }
                     }
                     
                     if let image = thisUserObject["image"]{
@@ -178,11 +170,11 @@ class FirstViewController: UIViewController {
                 tabBarItem.title = "Unaccepted"
             }
             
-            if(!self.hasVid){
-                self.vidViewHolder.isHidden = true
-                scrollView.contentSize = CGSize(width: scrollView.contentSize.width,height: 1.0)
-                
-            }
+//            if(!self.hasVid){
+//                self.vidViewHolder.isHidden = true
+//                scrollView.contentSize = CGSize(width: scrollView.contentSize.width,height: 1.0)
+//                
+//            }
         }
     
     func finishSignUp(){
@@ -198,59 +190,7 @@ class FirstViewController: UIViewController {
             }
         })
     }
-    
-    //    func fetchUserData(){
-    //        let currentUserRef = ref.child("users").queryOrdered(byChild: "email")
-    //            .queryEqual(toValue: user?.email).observeSingleEvent(of: .value, with: { (snapshot) in
-    //
-    //                if let value = snapshot.value as? NSDictionary{
-    //                    var hasVid = false
-    //                    //GOT USER OBJECT
-    //                    let thisUserObject = value.allValues.first as! NSDictionary
-    //
-    //                    for actualProperties in thisUserObject as NSDictionary{
-    //                        if let keyTitle = actualProperties.key as? String {
-    //
-    //                            if keyTitle == "full_name"{
-    //                                if let text = actualProperties.value as? String {
-    //                                    self.jobsLabel.text = text
-    //                                }
-    //                            }
-    //                            var customer = false
-    //
-    //
-    //
-    //
-    //                            if keyTitle == "home_type"{
-    //                                if let text = actualProperties.value as? String {
-    //                                    self.homeTypeLabel.text = text
-    //                                }
-    //                            }
-    //
-    //                            if keyTitle == "phone_number"{
-    //                                if let text = actualProperties.value as? String {
-    //                                    self.phoneNumberLabel.text = text
-    //                                }
-    //                            }
-    //
-    //
-    //                            if keyTitle == "full_name"{
-    //                                if let text = actualProperties.value as? String {
-    //                                    self.jobsLabel.text = text
-    //                                }
-    //                            }
-    //
-    //                        }
-    //                    }
-    //
-    //
-    //
-    //
-    //                }
-    //
-    //            })
-    //
-    //    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -271,6 +211,7 @@ class FirstViewController: UIViewController {
         guard let number = URL(string: "tel://" + "4438784794") else { return }
         UIApplication.shared.open(number)
     }
+    
     func logoutUser() {
         do{
             UserDefaults.standard.setValue(nil, forKey: "uid")
