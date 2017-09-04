@@ -55,10 +55,6 @@ class FirstViewController: UIViewController {
         floaty.buttonColor = UIColor.white
         floaty.plusColor = UIColor(red: 192.0/255.0, green: 216.0/255.0, blue: 144.0/255.0, alpha: 1)
         
-        floaty.addItem(title: "Logout") { (FloatyItem) in
-            self.logoutUser()
-        }
-        
         floaty.addItem("Request A Cleaner", icon: UIImage(named: "icon")!, handler: { item in
             
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "BookNow") as! SecondViewController

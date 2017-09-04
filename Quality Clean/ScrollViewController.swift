@@ -146,10 +146,8 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
         
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "BookingDetail")
-        self.present(vc!, animated: true) { 
-            
-            
-        }
+        self.navigationController?.pushViewController(vc!, animated: true)
+
 
         
     }
