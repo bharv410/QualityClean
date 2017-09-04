@@ -17,34 +17,15 @@ import Floaty
 class SecondViewController: FormViewController {
 
     struct Static {
-        static let nameTag = "name"
-        static let passwordTag = "password"
-        static let lastNameTag = "lastName"
-        static let jobTag = "job"
-        static let emailTag = "email"
-        static let URLTag = "url"
-        static let phoneTag = "phone"
-        static let enabled = "enabled"
-        static let check = "check"
-        static let segmented = "segmented"
         static let picker = "picker"
         static let birthday = "birthday"
-        static let categories = "categories"
         static let button = "button"
-        static let stepper = "stepper"
-        static let slider = "slider"
         static let textView = "textview"
     }
 
-
-    var cleanDateRow = FormRowDescriptor(tag: Static.birthday, type: .dateAndTime, title: "Cleaning Date")
-    
-    @IBOutlet weak var frequencyLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    
-    var ref: DatabaseReference!
     @IBOutlet var user = Auth.auth().currentUser
-
+    var cleanDateRow = FormRowDescriptor(tag: Static.birthday, type: .dateAndTime, title: "Cleaning Date")
+    var ref: DatabaseReference!
     var chosenDate = Date()
     
     override func viewDidLoad() {
@@ -94,6 +75,7 @@ class SecondViewController: FormViewController {
 
     
     fileprivate func loadForm() {
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         let form = FormDescriptor(title: "Cleaning Form")
         
@@ -176,77 +158,7 @@ class SecondViewController: FormViewController {
         self.form = form
     }
 
-//        chooseDate()
-//    }
-//
-//    func pickerView(pickerView: UIPickerView,didSelectRow row: Int,inComponent component: Int){updateLabel()
-//    }
-//    
-//    
-//    @IBAction func requestBooking(_ sender: Any) {
-//        self.reguestBooking(date: self.chosenDate)
-//    }
-//    
     func chooseDate(){
-
         print(cleanDateRow.value)
-//        let min = Date()
-//        let max = Date().addingTimeInterval(365*60 * 60 * 24)
-//        let picker = DateTimePicker.show(minimumDate: min, maximumDate: max)
-//        
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateStyle = .long
-//        dateFormatter.timeStyle = .short
-//        dateFormatter.doesRelativeDateFormatting = true
-//        
-//        picker.is12HourFormat = true
-//        picker.dateFormat = "MMM d, h:mm a"
-//        picker.highlightColor = UIColor(red: 192.0/255.0, green: 216.0/255.0, blue: 144.0/255.0, alpha: 1)
-//        picker.isDatePickerOnly = false // to hide time and show only date picker
-//        picker.completionHandler = { date in
-//            self.chosenDate = date
-//            
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateStyle = .long
-//            dateFormatter.timeStyle = .short
-//            dateFormatter.doesRelativeDateFormatting = true
-//
-//            //self.dateLabel.text = "When?: " + dateFormatter.string(from: date)
-//            
-//            let pickerData = [
-//                ["value": "once", "display": "Just this once"],
-//                ["value": "weekly", "display": "Weekly"],
-//                ["value": "biweekly", "display": "Every other week"],
-//                ["value": "Monthly", "display": "Monthly"]
-//            ]
-//            
-//            
-//            PickerDialog().show("How often?", options: pickerData, selected: "kilometer") {
-//                (value) -> Void in
-//                
-//                print("Unit selected: \(value)")
-//                
-//                //self.frequencyLabel.text = " \(value)"
-//            }
-//            
-//            
-//        }
     }
-//
-//    func updateLabel(){
-//    }
-//    
-//
-//
-//
-//    private func callNumber(phoneNumber:String) {
-//        if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
-//            let application:UIApplication = UIApplication.shared
-//            if (application.canOpenURL(phoneCallURL)) {
-//                application.open(phoneCallURL, options: [:], completionHandler: nil)
-//            }
-//        }
-//    }
-//}
-//
 }
