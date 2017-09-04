@@ -135,7 +135,9 @@ class BookingsViewControllerTableViewController: UITableViewController, UIEmptyS
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! BookingsCellTableViewCell
         
         cell.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
+        
         cell.cellLabel?.text = fruits[indexPath.row]
+        
         
         return cell
     }

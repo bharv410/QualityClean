@@ -11,6 +11,7 @@ import UIKit
 class BookingsCellTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var cellLabel: UILabel!
     
     override func setSelected(_ selected: Bool, animated: Bool) {

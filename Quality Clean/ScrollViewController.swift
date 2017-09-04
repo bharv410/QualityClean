@@ -21,7 +21,9 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var titleLabel: UILabel!
     
     
-    var fruits = [""]
+    var dateStrings = [""]
+    var userStrings = [""]
+    
 
     
     @IBOutlet weak var tableVie: UITableView!
@@ -76,6 +78,7 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
             
             
             var newItems = [String]()
+            var usernewItems = [String]()
             
             // loop through the children and append them to the new array
             for item in snapshot.children {
@@ -91,15 +94,19 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
                 
                 if(self.tbc.isCleaner && !accepted){
                     newItems.append(food as! String)
+                    usernewItems.append(uid as! String)
                     self.titleLabel.text = "Unaccepted Bookings"
                 }
                 
                 
+                
                 if((!self.tbc.isCleaner) && (uid == self.user?.uid)){
                     newItems.append(food as! String)
+                    usernewItems.append(uid as! String)
                 }
             }
-            self.fruits = newItems
+            self.dateStrings = newItems
+            self.userStrings = usernewItems
             self.tableVie.reloadData()
             self.tableVie.dg_stopLoading()
         }
@@ -157,14 +164,15 @@ class ScrollViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fruits.count
+        return dateStrings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! BookingsCellTableViewCell
         
-        cell.cellLabel?.text = fruits[indexPath.row]
-        
+        cell.cellLabel?.text = dateStrings[indexPath.row]
+        cell.authorLabel?.text = userStrings[indexPath.row]
+
         return cell
     }
 }

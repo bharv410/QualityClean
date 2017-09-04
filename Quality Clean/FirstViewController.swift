@@ -22,6 +22,7 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var scrollViewContentView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     var ref: DatabaseReference!
     var player: AVPlayer!
@@ -96,10 +97,10 @@ class FirstViewController: UIViewController {
 //                        self.bedBathLabel.text = bedBath as! String
 //                    }
 //                    
-//                    if let email = thisUserObject["email"]{
-//                        self.emailLabel.text = email as! String
-//                    }
-//                    
+                    if let email = thisUserObject["email"]{
+                        self.emailLabel.text = email as! String
+                    }
+//
 //                    if let address = thisUserObject["address"]{
 //                        self.addressLabel.text = address as! String
 //                    }
@@ -209,14 +210,33 @@ class FirstViewController: UIViewController {
     }
     
     func logoutUser() {
-        do{
-            UserDefaults.standard.setValue(nil, forKey: "uid")
-        }catch {
-            print("error logging out")
-        }
         
-        let loginViewController = self.storyboard!.instantiateViewController(withIdentifier: "Login")
-        UIApplication.shared.keyWindow?.rootViewController = loginViewController
+        let alert = UIAlertController(title: "Are you sure you want to logout?", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+            alert.dismiss(animated: true, completion: nil)
+            
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+
+            do{
+                UserDefaults.standard.setValue(nil, forKey: "uid")
+            }catch {
+                print("error logging out")
+            }
+            
+            let loginViewController = self.storyboard!.instantiateViewController(withIdentifier: "Login")
+            UIApplication.shared.keyWindow?.rootViewController = loginViewController
+            
+            
+        }))
+        
+        
+        self.present(alert, animated: true) {
+            
+        }
     }
     
     

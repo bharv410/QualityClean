@@ -129,6 +129,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="tgt-wh-ldD"/>
                     <connections>
+                        <outlet property="emailLabel" destination="he2-64-IvN" id="9vX-sv-nmE"/>
                         <outlet property="jobsLabel" destination="OWX-fC-TQs" id="ijz-w2-t3G"/>
                         <outlet property="profileImageView" destination="WxD-Md-4v7" id="zYZ-nb-IsZ"/>
                         <outlet property="scrollView" destination="Oce-dM-yf3" id="Ujh-Lk-eTW"/>
@@ -907,6 +908,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.75102728605270386" green="0.84748333692550659" blue="0.56343436241149902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
+                                            <outlet property="authorLabel" destination="dKW-ge-48I" id="PRt-6a-4Ye"/>
                                             <outlet property="cellLabel" destination="weM-Bl-K0X" id="P86-Ec-J8U"/>
                                         </connections>
                                     </tableViewCell>
