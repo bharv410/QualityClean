@@ -30,7 +30,7 @@ class FirstViewController: UIViewController {
     
     var completedSignup = false
     var hasVid = false
-    
+    var forceLogout = false
     var originalScrollSize = CGSize()
     
     var tbc = GlobalTabBarViewController()
@@ -141,6 +141,7 @@ class FirstViewController: UIViewController {
                         self.callBackAfterLoginDone()
                     })
                 }else{
+                    self.forceLogout = true
                     self.logoutUser()
                 }
             }
@@ -210,7 +211,7 @@ class FirstViewController: UIViewController {
     }
     
     func logoutUser() {
-        
+        if(!forceLogout){
         let alert = UIAlertController(title: "Are you sure you want to logout?", message: nil, preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
@@ -221,15 +222,7 @@ class FirstViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
 
-            do{
-                UserDefaults.standard.setValue(nil, forKey: "uid")
-            }catch {
-                print("error logging out")
-            }
-            
-            let loginViewController = self.storyboard!.instantiateViewController(withIdentifier: "Login")
-            UIApplication.shared.keyWindow?.rootViewController = loginViewController
-            
+            self.realLogOutMethod()
             
         }))
         
@@ -237,8 +230,22 @@ class FirstViewController: UIViewController {
         self.present(alert, animated: true) {
             
         }
+        }else{
+            self.realLogOutMethod()
+        }
     }
     
+    func realLogOutMethod(){
+        do{
+            UserDefaults.standard.setValue(nil, forKey: "uid")
+        }catch {
+            print("error logging out")
+        }
+        
+        let loginViewController = self.storyboard!.instantiateViewController(withIdentifier: "Login")
+        UIApplication.shared.keyWindow?.rootViewController = loginViewController
+        
+    }
     
     func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
         URLSession.shared.dataTask(with: url) {

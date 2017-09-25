@@ -13,6 +13,7 @@
 		69102E831F5B9DA300685760 /* BookingsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69102E821F5B9DA300685760 /* BookingsCellTableViewCell.swift */; };
 		6923D3B41F4F8C75006D0FA1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923D3B31F4F8C75006D0FA1 /* Constants.swift */; };
 		6929554F1F5A57D20034CBB5 /* PickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6929554E1F5A57D20034CBB5 /* PickerDialog.swift */; };
+		694863BD1F799DCF0010F915 /* FinishSignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694863BC1F799DCF0010F915 /* FinishSignUpController.swift */; };
 		6954B68F1F5BCB64003610AD /* GlobalTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6954B68E1F5BCB64003610AD /* GlobalTabBarViewController.swift */; };
 		6956B5FF1F5AF808003E810C /* placeholderhome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6956B5FE1F5AF808003E810C /* placeholderhome.jpg */; };
 		6956B6011F5AFA4D003E810C /* BookingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6956B6001F5AFA4D003E810C /* BookingDetailViewController.swift */; };
@@ -45,6 +46,7 @@
 		69102E821F5B9DA300685760 /* BookingsCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingsCellTableViewCell.swift; sourceTree = "<group>"; };
 		6923D3B31F4F8C75006D0FA1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6929554E1F5A57D20034CBB5 /* PickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerDialog.swift; sourceTree = "<group>"; };
+		694863BC1F799DCF0010F915 /* FinishSignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishSignUpController.swift; sourceTree = "<group>"; };
 		6954B68E1F5BCB64003610AD /* GlobalTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalTabBarViewController.swift; sourceTree = "<group>"; };
 		6956B5FE1F5AF808003E810C /* placeholderhome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholderhome.jpg; sourceTree = "<group>"; };
 		6956B6001F5AFA4D003E810C /* BookingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingDetailViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				69D116751F4F967C004BE063 /* CompleteSignUpViewController.swift */,
 				69DAAF601F4F2B46006E7CE3 /* SecondViewController.swift */,
 				69DAAF621F4F2B46006E7CE3 /* Main.storyboard */,
+				694863BC1F799DCF0010F915 /* FinishSignUpController.swift */,
 				69B09EEA1F4F474300E134E8 /* ResetPasswordViewController.swift */,
 				69B09EE81F4F472400E134E8 /* LoginViewController.swift */,
 				69DAAF651F4F2B46006E7CE3 /* Assets.xcassets */,
@@ -332,6 +335,7 @@
 				69DAAF711F4F3333006E7CE3 /* SignUpViewController.swift in Sources */,
 				69B09EEB1F4F474300E134E8 /* ResetPasswordViewController.swift in Sources */,
 				69B09EE91F4F472400E134E8 /* LoginViewController.swift in Sources */,
+				694863BD1F799DCF0010F915 /* FinishSignUpController.swift in Sources */,
 				69DAAF5F1F4F2B46006E7CE3 /* FirstViewController.swift in Sources */,
 				6929554F1F5A57D20034CBB5 /* PickerDialog.swift in Sources */,
 				6923D3B41F4F8C75006D0FA1 /* Constants.swift in Sources */,

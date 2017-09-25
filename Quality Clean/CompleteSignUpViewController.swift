@@ -43,7 +43,7 @@ class CompleteSignUpViewController : UIViewController {
     @IBOutlet weak var chooseVideoButton: UIButton!
     
     
-    var customer = true
+    var customer = false
     var regButtonUp = false
     
     var videoChosen = false
@@ -51,6 +51,7 @@ class CompleteSignUpViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        setupCleaner()
         
     }
     
@@ -62,14 +63,6 @@ class CompleteSignUpViewController : UIViewController {
         imageView.clipsToBounds = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-            if(self.customer){
-            self.setupCustomer()
-            }
-        })
-    }
     
     
     func setupCustomer(){
@@ -123,13 +116,8 @@ class CompleteSignUpViewController : UIViewController {
             }
         })
         
-        let screenSize: CGRect = UIScreen.main.bounds
-        let oneThirdScreenHeight = screenSize.height/3
         
-        
-        scrollView.contentSize = CGSize(width:scrollViewContentSize.frame.width, height: screenSize.height + oneThirdScreenHeight + oneThirdScreenHeight)
-        
-
+        self.scrollView.contentSize = scrollViewContentSize.frame.size
     }
     
     func segmentedControlValueChanged(segment: UISegmentedControl) {
@@ -227,8 +215,9 @@ class CompleteSignUpViewController : UIViewController {
         signupSegmentedControl.addTarget(self, action: #selector(self.segmentedControlValueChanged(segment:))
             , for: .valueChanged)
         
-        
-//        if (user != nil) {
+        signupSegmentedControl.isHidden = true
+
+        //        if (user != nil) {
 //            emailTextView.text = user?.email
 //            emailTextView.allowsEditingTextAttributes = false
 //        }
