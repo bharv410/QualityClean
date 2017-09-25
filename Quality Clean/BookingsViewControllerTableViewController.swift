@@ -23,6 +23,7 @@ class BookingsViewControllerTableViewController: UITableViewController, UIEmptyS
         super.viewDidLoad()
         self.emptyStateDataSource = self
         self.emptyStateDelegate = self
+
         // Optionally remove seperator lines from empty cells
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         tbc = self.tabBarController as! GlobalTabBarViewController
@@ -36,9 +37,25 @@ class BookingsViewControllerTableViewController: UITableViewController, UIEmptyS
 
     }
     
-    func done() {
-        
+    var emptyStateImage: UIImage? {
+        return UIImage(named: "owl.jpg")
     }
+    
+    var emptyStateTitle: NSAttributedString {
+        return NSAttributedString.init(string: "No Past Bookings", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16), NSForegroundColorAttributeName:UIColor.black])
+    }
+    
+    var emptyStateButtonTitle: NSAttributedString? {
+        return NSAttributedString.init(string: "After you clean some homes the details will appear here!", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16), NSForegroundColorAttributeName:UIColor.black])
+    }
+    
+    
+    // MARK: - Empty State Delegate
+    
+    func emptyStatebuttonWasTapped(button: UIButton) {
+        // Add a pokemon
+    }
+    
     
     func addFloaty(){
         let floaty = Floaty()

@@ -28,6 +28,7 @@ class FirstViewController: UIViewController {
     var player: AVPlayer!
     var avpController = AVPlayerViewController()
     
+    
     var completedSignup = false
     var hasVid = false
     var forceLogout = false

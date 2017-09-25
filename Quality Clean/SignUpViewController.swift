@@ -52,13 +52,8 @@ class SignUpViewController: UIViewController {
                 if error == nil {
                     print("You have successfully signed up")
                     UserDefaults.standard.setValue(user?.uid, forKey: "uid")
-                    
-                    let vc = FinishSignUpController()
-
-                    self.present(vc, animated: true, completion: {
-                        
-                    })
-                    
+                
+                    self.present(FinishSignUpController(), animated: true, completion: {})
                 } else {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     
