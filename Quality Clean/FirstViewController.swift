@@ -14,9 +14,11 @@ import AVKit
 import AVFoundation
 import Floaty
 import Stripe
-import SurveyMonkeyiOSSDK
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, SMFeedbackDelegate {
+    
+    
+    var feedbackController : SMFeedbackViewController!
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet var user = Auth.auth().currentUser
@@ -51,6 +53,32 @@ class FirstViewController: UIViewController {
     
     func done() {
         
+    }
+    
+    
+    @IBAction func launchOnboarding(_ sender: Any) {
+        launchOnboardingSurvey()
+    }
+    
+    func launchOnboardingSurvey(){
+        feedbackController = SMFeedbackViewController(survey: "868KC7N")
+        feedbackController.delegate = self
+        self.navigationController?.present(feedbackController, animated: true) {
+
+        }
+    }
+    
+    func respondentDidEndSurvey(_ respondent: SMRespondent!, error: Error!) {
+        if respondent != nil{
+            print("finished")
+            feedbackController.dismiss(animated: true, completion: { 
+                
+                
+            })
+            
+        }else{
+            print(error)
+        }
     }
     
     
