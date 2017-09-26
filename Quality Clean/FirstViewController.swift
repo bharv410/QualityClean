@@ -13,6 +13,8 @@ import FirebaseDatabase
 import AVKit
 import AVFoundation
 import Floaty
+import Stripe
+import SurveyMonkeyiOSSDK
 
 class FirstViewController: UIViewController {
     

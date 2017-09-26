@@ -339,19 +339,12 @@
                                     <action selector="createAccountAction:" destination="sTZ-fh-iBz" eventType="touchUpInside" id="cvs-5N-ePj"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aa3-hl-BGc">
-                                <rect key="frame" x="118" y="28" width="140" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="transparenticon.png" translatesAutoresizingMaskIntoConstraints="NO" id="NO9-lD-3vF">
                                 <rect key="frame" x="68" y="102" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.75102728605270386" green="0.84748333692550659" blue="0.56343436241149902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.8077566964285714" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="sl1-3T-kw4" id="bJd-cf-988"/>
@@ -375,12 +368,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderhome.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Zut-do-adb">
-                                <rect key="frame" x="16" y="58" width="343" height="231"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Zut-do-adb" secondAttribute="height" multiplier="49:33" id="dC0-lg-90k"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZ8-qn-FJA">
                                 <rect key="frame" x="16" y="595" width="343" height="52"/>
                                 <color key="backgroundColor" red="0.75294117647058822" green="0.84705882352941175" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -396,7 +383,7 @@
                                     <action selector="onClaimClicked:" destination="AqY-wy-U0w" eventType="touchUpInside" id="rbp-ZE-Kra"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$130" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfM-RO-ZwF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfM-RO-ZwF">
                                 <rect key="frame" x="16" y="524" width="343" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="Q2y-bw-JgS"/>
@@ -428,6 +415,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderhome.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Zut-do-adb">
+                                <rect key="frame" x="16" y="58" width="343" height="231"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Zut-do-adb" secondAttribute="height" multiplier="49:33" id="dC0-lg-90k"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.75102728610000002" green="0.84748333689999999" blue="0.5634343624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -452,7 +445,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDb-Eg-Rkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1882.4000000000001" y="-457.42128935532236"/>
+            <point key="canvasLocation" x="1727" y="970"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="m13-6J-z1O">
