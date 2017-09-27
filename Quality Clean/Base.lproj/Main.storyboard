@@ -603,7 +603,7 @@
                                         <constraint firstItem="ufy-tJ-kXV" firstAttribute="centerX" secondItem="wEb-wu-NED" secondAttribute="centerX" id="zh3-ww-uuN"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.75102728610000002" green="0.84748333689999999" blue="0.5634343624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.1803921568627451" green="0.85098039215686272" blue="0.78823529411764703" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="cellLabel" destination="hVg-PW-MdL" id="lrW-qH-KmK"/>
                                 </connections>
