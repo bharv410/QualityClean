@@ -27,11 +27,12 @@ class FinishSignUpController: FormViewController {
     @IBOutlet var user = Auth.auth().currentUser
     var ref: DatabaseReference!
     var userRef : DatabaseReference!
-
+    var cleaner = true
     var cleanDateRow = FormRowDescriptor(tag: Static.birthday, type: .date, title: "Birthdate")
     var fullNameRow = FormRowDescriptor(tag: Static.textView, type: .text, title: "Full Name")
     var addressRow = FormRowDescriptor(tag: Static.textView, type: .text, title: "Address")
     var phoneNumberRow = FormRowDescriptor(tag: Static.textView, type: .phone, title: "Phone #")
+    
     
     var profilePictureUplaoded = false
     
@@ -77,6 +78,33 @@ class FinishSignUpController: FormViewController {
         section1.rows.append(phoneNumberRow)
 
         
+        
+        
+        
+        var row2 = FormRowDescriptor(tag: Static.picker, type: .picker, title: "User Type")
+        row2.configuration.cell.showsInputToolbar = true
+        row2.configuration.selection.options = (["L", "U"] as [String]) as [AnyObject]
+        row2.configuration.selection.optionTitleClosure = { value in
+            guard let option = value as? String else { return "" }
+            switch option {
+            case "L":
+                print("cleaner")
+                self.cleaner = true
+                return "Cleaner"
+            case "U":
+                print("customer")
+                self.cleaner = false
+                return "Customer"
+            default:
+                return ""
+            }
+        }
+        row2.value = "L" as AnyObject
+        section1.rows.append(row2)
+        
+        
+        
+        
         let section8 = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
         
         var row = FormRowDescriptor(tag: Static.button, type: .button, title: "Finished!")
@@ -94,9 +122,12 @@ class FinishSignUpController: FormViewController {
         self.view.endEditing(true)
 
         userRef.child("email").setValue(user?.email)
+        if(self.cleaner){
         userRef.child("user_type").setValue("cleaner")
+        }else{
+            userRef.child("user_type").setValue("customer")
+        }
         userRef.child("onboardingcomplete").setValue(false)
-
         
         if let dateVal = self.cleanDateRow.value{
             let dateFormatter = DateFormatter()
