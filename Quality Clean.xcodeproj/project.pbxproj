@@ -15,12 +15,12 @@
 		6929554F1F5A57D20034CBB5 /* PickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6929554E1F5A57D20034CBB5 /* PickerDialog.swift */; };
 		694863BD1F799DCF0010F915 /* FinishSignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694863BC1F799DCF0010F915 /* FinishSignUpController.swift */; };
 		694863C21F79BD700010F915 /* BaseNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694863C11F79BD700010F915 /* BaseNavViewController.swift */; };
+		694B169E1F7C6A1E00CD46B6 /* ScrollViewController copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694B169D1F7C6A1E00CD46B6 /* ScrollViewController copy.swift */; };
 		6954B68F1F5BCB64003610AD /* GlobalTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6954B68E1F5BCB64003610AD /* GlobalTabBarViewController.swift */; };
 		6956B5FF1F5AF808003E810C /* placeholderhome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6956B5FE1F5AF808003E810C /* placeholderhome.jpg */; };
 		6956B6011F5AFA4D003E810C /* BookingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6956B6001F5AFA4D003E810C /* BookingDetailViewController.swift */; };
 		6956B6031F5B0128003E810C /* o.png in Resources */ = {isa = PBXBuildFile; fileRef = 6956B6021F5B0128003E810C /* o.png */; };
 		695AF5B31F7C1DB400534DAA /* Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695AF5B21F7C1DB400534DAA /* Static.swift */; };
-		696160F21F51E9F1009133F6 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696160F11F51E9F1009133F6 /* ScrollViewController.swift */; };
 		698BB0E91F7C4FAB003692D3 /* wash.png in Resources */ = {isa = PBXBuildFile; fileRef = 698BB0E81F7C4FAB003692D3 /* wash.png */; };
 		6993EBA91F5B6066002C8965 /* icons8-User-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 6993EBA81F5B6066002C8965 /* icons8-User-50.png */; };
 		6993EBB11F5B61D4002C8965 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 6993EBB01F5B61D4002C8965 /* rocket.png */; };
@@ -50,12 +50,12 @@
 		6929554E1F5A57D20034CBB5 /* PickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerDialog.swift; sourceTree = "<group>"; };
 		694863BC1F799DCF0010F915 /* FinishSignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishSignUpController.swift; sourceTree = "<group>"; };
 		694863C11F79BD700010F915 /* BaseNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavViewController.swift; sourceTree = "<group>"; };
+		694B169D1F7C6A1E00CD46B6 /* ScrollViewController copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ScrollViewController copy.swift"; sourceTree = "<group>"; };
 		6954B68E1F5BCB64003610AD /* GlobalTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalTabBarViewController.swift; sourceTree = "<group>"; };
 		6956B5FE1F5AF808003E810C /* placeholderhome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholderhome.jpg; sourceTree = "<group>"; };
 		6956B6001F5AFA4D003E810C /* BookingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingDetailViewController.swift; sourceTree = "<group>"; };
 		6956B6021F5B0128003E810C /* o.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = o.png; sourceTree = "<group>"; };
 		695AF5B21F7C1DB400534DAA /* Static.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Static.swift; sourceTree = "<group>"; };
-		696160F11F51E9F1009133F6 /* ScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		698BB0E81F7C4FAB003692D3 /* wash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wash.png; sourceTree = "<group>"; };
 		699351361F7ABBCE00F3FCCF /* Quality Clean-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Quality Clean-Bridging-Header.h"; sourceTree = "<group>"; };
 		6993EBA81F5B6066002C8965 /* icons8-User-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-User-50.png"; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 				69DAAF5C1F4F2B46006E7CE3 /* AppDelegate.swift */,
 				6954B68E1F5BCB64003610AD /* GlobalTabBarViewController.swift */,
 				69DAAF5E1F4F2B46006E7CE3 /* FirstViewController.swift */,
-				696160F11F51E9F1009133F6 /* ScrollViewController.swift */,
+				694B169D1F7C6A1E00CD46B6 /* ScrollViewController copy.swift */,
 				69F452C81F50F8DE00D78E45 /* BookingsViewControllerTableViewController.swift */,
 				694863BC1F799DCF0010F915 /* FinishSignUpController.swift */,
 				69DAAF601F4F2B46006E7CE3 /* SecondViewController.swift */,
@@ -352,11 +352,11 @@
 				69DAAF5F1F4F2B46006E7CE3 /* FirstViewController.swift in Sources */,
 				6929554F1F5A57D20034CBB5 /* PickerDialog.swift in Sources */,
 				6923D3B41F4F8C75006D0FA1 /* Constants.swift in Sources */,
-				696160F21F51E9F1009133F6 /* ScrollViewController.swift in Sources */,
 				69102E831F5B9DA300685760 /* BookingsCellTableViewCell.swift in Sources */,
 				6954B68F1F5BCB64003610AD /* GlobalTabBarViewController.swift in Sources */,
 				69F452C91F50F8DE00D78E45 /* BookingsViewControllerTableViewController.swift in Sources */,
 				695AF5B31F7C1DB400534DAA /* Static.swift in Sources */,
+				694B169E1F7C6A1E00CD46B6 /* ScrollViewController copy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
