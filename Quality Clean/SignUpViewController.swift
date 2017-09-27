@@ -19,7 +19,6 @@ class SignUpViewController: UIViewController {
         addDismissKeyboardTapGestureRecog()
     }
     
-    
     func addDismissKeyboardTapGestureRecog(){
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         

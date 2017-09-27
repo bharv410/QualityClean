@@ -17,54 +17,40 @@ import Stripe
 
 class FirstViewController: UIViewController, SMFeedbackDelegate {
     
-    
-    var finishedOnbaording = false
-    
-    var currentUserDataSnapshot : DataSnapshot!
-    
     @IBOutlet weak var onboardingButton: UIButton!
-    
-    var feedbackController : SMFeedbackViewController!
-    
     @IBOutlet weak var textField: UITextField!
     @IBOutlet var user = Auth.auth().currentUser
     @IBOutlet weak var jobsLabel: UILabel!
     @IBOutlet weak var scrollViewContentView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
-    
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    var ref: DatabaseReference!
+    
+    
+    var ref = Database.database().reference()
     var player: AVPlayer!
     var avpController = AVPlayerViewController()
-    
-    
     var completedSignup = false
     var hasVid = false
     var forceLogout = false
     var originalScrollSize = CGSize()
+    var tbc : GlobalTabBarViewController!
+    var finishedOnbaording = false
+    var currentUserDataSnapshot : DataSnapshot!
+    var feedbackController : SMFeedbackViewController!
     
-    var tbc = GlobalTabBarViewController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tbc = self.tabBarController as! GlobalTabBarViewController
-        ref = Database.database().reference()
         fetchUserData()
         setupImageView()
-        
         self.navigationItem.title = "My Profile"
 
     }
     
-    func done() {
-        
-    }
-    
-    
     @IBAction func launchOnboarding(_ sender: Any) {
-        
-        
         if finishedOnbaording {
                 let alert = UIAlertController(title: "Onboarding Complete!", message: "You have already completed the onboarding process.", preferredStyle: UIAlertControllerStyle.alert)
                 
@@ -85,36 +71,22 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
     
     func respondentDidEndSurvey(_ respondent: SMRespondent!, error: Error!) {
         if respondent != nil{
-            print("finished")
-            feedbackController.dismiss(animated: true, completion: { 
+            feedbackController.dismiss(animated: true, completion: {
 
                 self.finishedOnbaording = true
                 let values = ["onboardingcomplete": true]
                 self.currentUserDataSnapshot.ref.updateChildValues(values, withCompletionBlock: { (error, ref) in
-                    
                     if(error != nil){
                         print(error)
                     }else{
                         self.onboardingButton.setTitleColor(UIColor.gray, for: .normal)
-                    print("updatewdddddd")
-                    print("updatewdddddd")
-                    print("updatewdddddd")
-                    print("updatewdddddd")
-                    print("updatewdddddd")
-                    print("updatewdddddd")
-                    print("updatewdddddd")
-                    print("updatewdddddd")
-                        
                     }
                 })
-                
             })
-            
         }else{
             print(error)
         }
     }
-    
     
     func addFloaty(){
         let floaty = Floaty()
@@ -149,12 +121,7 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
                 for rest in snapshot.children.allObjects as! [DataSnapshot] {
                     print(rest.key)
                     self.currentUserDataSnapshot = rest
-                    print("benmark")
-                    print(self.currentUserDataSnapshot)
-                    print("benmark")
                 }
-                
-                
                 
                 
                 if let value = snapshot.value as? NSDictionary{
