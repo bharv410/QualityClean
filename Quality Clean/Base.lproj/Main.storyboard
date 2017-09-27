@@ -107,7 +107,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                                 <state key="normal" title="Log-out">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleShadowColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="logoutUser:" destination="9pv-A4-QxB" eventType="touchUpInside" id="eLM-e8-8yL"/>
@@ -138,7 +138,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.75102728605270386" green="0.84748333692550659" blue="0.56343436241149902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="EWY-xm-td6" secondAttribute="bottom" constant="-90" id="0A1-aL-sTe"/>
                                     <constraint firstAttribute="trailing" secondItem="EWY-xm-td6" secondAttribute="trailing" id="5bf-5e-EF8"/>
@@ -160,6 +160,7 @@
                     <connections>
                         <outlet property="emailLabel" destination="he2-64-IvN" id="9vX-sv-nmE"/>
                         <outlet property="jobsLabel" destination="OWX-fC-TQs" id="ijz-w2-t3G"/>
+                        <outlet property="onboardingButton" destination="F5h-AR-rLN" id="gvD-ko-TRh"/>
                         <outlet property="profileImageView" destination="WxD-Md-4v7" id="zYZ-nb-IsZ"/>
                         <outlet property="scrollView" destination="Oce-dM-yf3" id="Ujh-Lk-eTW"/>
                         <outlet property="scrollViewContentView" destination="EWY-xm-td6" id="fEA-42-ulm"/>

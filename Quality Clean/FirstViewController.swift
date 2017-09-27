@@ -22,6 +22,7 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
     
     var currentUserDataSnapshot : DataSnapshot!
     
+    @IBOutlet weak var onboardingButton: UIButton!
     
     var feedbackController : SMFeedbackViewController!
     
@@ -65,7 +66,7 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
         
         
         if finishedOnbaording {
-                let alert = UIAlertController(title: "Already finished onboarding!!!", message: "yay!", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Onboarding Complete!", message: "You have already completed the onboarding process.", preferredStyle: UIAlertControllerStyle.alert)
                 
                 alert.addAction(UIAlertAction(title: "Okay!", style: UIAlertActionStyle.default, handler: nil))
                 
@@ -79,10 +80,7 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
     func launchOnboardingSurvey(){
         feedbackController = SMFeedbackViewController(survey: "868KC7N")
         feedbackController.delegate = self
-        self.navigationController?.present(feedbackController, animated: true) {
-
-            
-        }
+        self.navigationController?.pushViewController(feedbackController, animated: true)
     }
     
     func respondentDidEndSurvey(_ respondent: SMRespondent!, error: Error!) {
@@ -97,6 +95,7 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
                     if(error != nil){
                         print(error)
                     }else{
+                        self.onboardingButton.setTitleColor(UIColor.gray, for: .normal)
                     print("updatewdddddd")
                     print("updatewdddddd")
                     print("updatewdddddd")
@@ -105,6 +104,7 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
                     print("updatewdddddd")
                     print("updatewdddddd")
                     print("updatewdddddd")
+                        
                     }
                 })
                 
@@ -120,6 +120,7 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
         let floaty = Floaty()
         floaty.buttonColor = UIColor.white
         floaty.plusColor = UIColor(red: 46.0/255.0, green: 217.0/255.0, blue: 201.0/255.0, alpha: 1)
+
         
         floaty.addItem("Request A Cleaner", icon: UIImage(named: "icon")!, handler: { item in
             
@@ -189,6 +190,7 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
                     if let finishedOnaroding = thisUserObject["onboardingcomplete"]{
                         if(finishedOnaroding as! Bool){
                         self.finishedOnbaording = true
+                            self.onboardingButton.setTitleColor(UIColor.gray, for: .normal)
                         }
                     }
                     

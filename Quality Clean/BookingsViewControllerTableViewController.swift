@@ -38,15 +38,15 @@ class BookingsViewControllerTableViewController: UITableViewController, UIEmptyS
     }
     
     var emptyStateImage: UIImage? {
-        return UIImage(named: "owl.jpg")
+        return UIImage(named: "wash.png")
     }
     
     var emptyStateTitle: NSAttributedString {
-        return NSAttributedString.init(string: "No Past Bookings", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16), NSForegroundColorAttributeName:UIColor.black])
+        return NSAttributedString.init(string: "No Past Bookings!", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16), NSForegroundColorAttributeName:UIColor.white])
     }
     
     var emptyStateButtonTitle: NSAttributedString? {
-        return NSAttributedString.init(string: "After you clean some homes the details will appear here!", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16), NSForegroundColorAttributeName:UIColor.black])
+        return NSAttributedString.init(string: "Check back after your first clean!", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16), NSForegroundColorAttributeName:UIColor.white])
     }
     
     
