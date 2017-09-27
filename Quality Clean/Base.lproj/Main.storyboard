@@ -31,7 +31,7 @@
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Jobs Tab" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="OWX-fC-TQs">
                                                 <rect key="frame" x="109" y="158" width="156" height="42"/>
-                                                <color key="backgroundColor" red="0.75102728605270386" green="0.84748333692550659" blue="0.56343436241149902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.17894607782363892" green="0.84956628084182739" blue="0.79015356302261353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="36"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -114,7 +114,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.75102728605270386" green="0.84748333692550659" blue="0.56343436241149902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.17894607782363892" green="0.84956628084182739" blue="0.79015356302261353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="WxD-Md-4v7" firstAttribute="top" secondItem="EWY-xm-td6" secondAttribute="top" constant="60" id="5X0-wd-3Sr"/>
                                             <constraint firstItem="he2-64-IvN" firstAttribute="centerX" secondItem="F5h-AR-rLN" secondAttribute="centerX" id="5bG-L0-MOB"/>
@@ -142,7 +142,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="EWY-xm-td6" secondAttribute="bottom" constant="-90" id="0A1-aL-sTe"/>
                                     <constraint firstAttribute="trailing" secondItem="EWY-xm-td6" secondAttribute="trailing" id="5bf-5e-EF8"/>
-                                    <constraint firstItem="EWY-xm-td6" firstAttribute="top" secondItem="Oce-dM-yf3" secondAttribute="top" constant="8" id="5kV-sy-mRn"/>
+                                    <constraint firstItem="EWY-xm-td6" firstAttribute="top" secondItem="Oce-dM-yf3" secondAttribute="top" id="5kV-sy-mRn"/>
                                     <constraint firstItem="EWY-xm-td6" firstAttribute="centerX" secondItem="Oce-dM-yf3" secondAttribute="centerX" id="Q2e-XV-f7g"/>
                                     <constraint firstItem="EWY-xm-td6" firstAttribute="leading" secondItem="Oce-dM-yf3" secondAttribute="leading" id="W2I-MW-Kij"/>
                                 </constraints>
@@ -261,7 +261,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.75102728605270386" green="0.84748333692550659" blue="0.56343436241149902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1803921568627451" green="0.85098039215686272" blue="0.78823529411764703" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bFu-iX-7P6" firstAttribute="centerX" secondItem="968-Cs-Vbf" secondAttribute="centerX" id="ObS-MI-3OD"/>
                             <constraint firstItem="6mB-6i-pd1" firstAttribute="leading" secondItem="bFu-iX-7P6" secondAttribute="leading" id="PCt-yA-x4p"/>
@@ -373,7 +373,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZ8-qn-FJA">
                                 <rect key="frame" x="16" y="595" width="343" height="52"/>
-                                <color key="backgroundColor" red="0.75294117647058822" green="0.84705882352941175" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.17894607779999999" green="0.84956628079999996" blue="0.79015356299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="3VE-iy-zKT"/>
                                 </constraints>
@@ -425,7 +425,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.75102728610000002" green="0.84748333689999999" blue="0.5634343624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.17894607779999999" green="0.84956628079999996" blue="0.79015356299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wZ8-qn-FJA" firstAttribute="top" secondItem="sfM-RO-ZwF" secondAttribute="bottom" constant="8" id="1To-8e-mal"/>
                             <constraint firstItem="4Lv-5N-UwL" firstAttribute="top" secondItem="wZ8-qn-FJA" secondAttribute="bottom" constant="20" id="1k7-Im-Mqh"/>
@@ -501,7 +501,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.75294117647058822" green="0.84705882352941175" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.17894607779999999" green="0.84956628079999996" blue="0.79015356299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="Ic6-kG-p9n" id="WUq-MI-jpF"/>
@@ -538,7 +538,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="hO0-Wh-dec">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.75102728610000002" green="0.84748333689999999" blue="0.5634343624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.17894607779999999" green="0.84956628079999996" blue="0.79015356299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" rowHeight="127" id="Wda-cU-238" customClass="BookingsCellTableViewCell" customModule="Quality_Clean" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="127"/>
@@ -549,14 +549,14 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="cellTitle" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVg-PW-MdL">
                                             <rect key="frame" x="35" y="27.5" width="295" height="25"/>
-                                            <color key="backgroundColor" red="0.75102728610000002" green="0.84748333689999999" blue="0.5634343624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.17894607779999999" green="0.84956628079999996" blue="0.79015356299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgs-Dp-lYL">
                                             <rect key="frame" x="335" y="8" width="18" height="21"/>
-                                            <color key="backgroundColor" red="0.75102728610000002" green="0.84748333689999999" blue="0.5634343624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.17894607779999999" green="0.84956628079999996" blue="0.79015356299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -580,13 +580,13 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArZ-XS-3WH">
                                             <rect key="frame" x="52" y="54.5" width="315" height="18"/>
-                                            <color key="backgroundColor" red="0.75102728610000002" green="0.84748333689999999" blue="0.5634343624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.17894607779999999" green="0.84956628079999996" blue="0.79015356299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.75102728610000002" green="0.84748333689999999" blue="0.5634343624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.17894607779999999" green="0.84956628079999996" blue="0.79015356299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="ArZ-XS-3WH" firstAttribute="top" secondItem="hVg-PW-MdL" secondAttribute="bottom" constant="2" id="Ew6-9O-04R"/>
                                         <constraint firstItem="KaO-Kq-aRO" firstAttribute="top" secondItem="wEb-wu-NED" secondAttribute="topMargin" constant="2" id="MKH-h2-34o"/>
@@ -688,8 +688,8 @@
         <image name="transparenticon.png" width="524" height="370"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="bQ5-aA-FF0"/>
+        <segue reference="wtG-s3-x0c"/>
         <segue reference="BTr-YK-gLy"/>
-        <segue reference="6eb-Hk-dBB"/>
-        <segue reference="K4G-4O-oFB"/>
     </inferredMetricsTieBreakers>
 </document>

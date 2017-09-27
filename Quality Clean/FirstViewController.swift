@@ -81,6 +81,7 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
         feedbackController.delegate = self
         self.navigationController?.present(feedbackController, animated: true) {
 
+            
         }
     }
     
@@ -118,7 +119,7 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
     func addFloaty(){
         let floaty = Floaty()
         floaty.buttonColor = UIColor.white
-        floaty.plusColor = UIColor(red: 192.0/255.0, green: 216.0/255.0, blue: 144.0/255.0, alpha: 1)
+        floaty.plusColor = UIColor(red: 46.0/255.0, green: 217.0/255.0, blue: 201.0/255.0, alpha: 1)
         
         floaty.addItem("Request A Cleaner", icon: UIImage(named: "icon")!, handler: { item in
             
