@@ -19,6 +19,7 @@
 		6956B5FF1F5AF808003E810C /* placeholderhome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6956B5FE1F5AF808003E810C /* placeholderhome.jpg */; };
 		6956B6011F5AFA4D003E810C /* BookingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6956B6001F5AFA4D003E810C /* BookingDetailViewController.swift */; };
 		6956B6031F5B0128003E810C /* o.png in Resources */ = {isa = PBXBuildFile; fileRef = 6956B6021F5B0128003E810C /* o.png */; };
+		695AF5B31F7C1DB400534DAA /* Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695AF5B21F7C1DB400534DAA /* Static.swift */; };
 		696160F21F51E9F1009133F6 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696160F11F51E9F1009133F6 /* ScrollViewController.swift */; };
 		6993EBA91F5B6066002C8965 /* icons8-User-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 6993EBA81F5B6066002C8965 /* icons8-User-50.png */; };
 		6993EBB11F5B61D4002C8965 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 6993EBB01F5B61D4002C8965 /* rocket.png */; };
@@ -52,6 +53,7 @@
 		6956B5FE1F5AF808003E810C /* placeholderhome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholderhome.jpg; sourceTree = "<group>"; };
 		6956B6001F5AFA4D003E810C /* BookingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingDetailViewController.swift; sourceTree = "<group>"; };
 		6956B6021F5B0128003E810C /* o.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = o.png; sourceTree = "<group>"; };
+		695AF5B21F7C1DB400534DAA /* Static.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Static.swift; sourceTree = "<group>"; };
 		696160F11F51E9F1009133F6 /* ScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		699351361F7ABBCE00F3FCCF /* Quality Clean-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Quality Clean-Bridging-Header.h"; sourceTree = "<group>"; };
 		6993EBA81F5B6066002C8965 /* icons8-User-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-User-50.png"; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				6956B6001F5AFA4D003E810C /* BookingDetailViewController.swift */,
 				69102E821F5B9DA300685760 /* BookingsCellTableViewCell.swift */,
 				699351361F7ABBCE00F3FCCF /* Quality Clean-Bridging-Header.h */,
+				695AF5B21F7C1DB400534DAA /* Static.swift */,
 			);
 			path = "Quality Clean";
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				69102E831F5B9DA300685760 /* BookingsCellTableViewCell.swift in Sources */,
 				6954B68F1F5BCB64003610AD /* GlobalTabBarViewController.swift in Sources */,
 				69F452C91F50F8DE00D78E45 /* BookingsViewControllerTableViewController.swift in Sources */,
+				695AF5B31F7C1DB400534DAA /* Static.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

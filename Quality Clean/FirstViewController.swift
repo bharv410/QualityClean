@@ -18,6 +18,11 @@ import Stripe
 class FirstViewController: UIViewController, SMFeedbackDelegate {
     
     
+    var finishedOnbaording = false
+    
+    var currentUserDataSnapshot : DataSnapshot!
+    
+    
     var feedbackController : SMFeedbackViewController!
     
     @IBOutlet weak var textField: UITextField!
@@ -57,7 +62,18 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
     
     
     @IBAction func launchOnboarding(_ sender: Any) {
-        launchOnboardingSurvey()
+        
+        
+        if finishedOnbaording {
+                let alert = UIAlertController(title: "Already finished onboarding!!!", message: "yay!", preferredStyle: UIAlertControllerStyle.alert)
+                
+                alert.addAction(UIAlertAction(title: "Okay!", style: UIAlertActionStyle.default, handler: nil))
+                
+                self.present(alert, animated: true) {}
+
+            }else{
+                launchOnboardingSurvey()
+            }
     }
     
     func launchOnboardingSurvey(){
@@ -72,7 +88,24 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
         if respondent != nil{
             print("finished")
             feedbackController.dismiss(animated: true, completion: { 
-                
+
+                self.finishedOnbaording = true
+                let values = ["onboardingcomplete": true]
+                self.currentUserDataSnapshot.ref.updateChildValues(values, withCompletionBlock: { (error, ref) in
+                    
+                    if(error != nil){
+                        print(error)
+                    }else{
+                    print("updatewdddddd")
+                    print("updatewdddddd")
+                    print("updatewdddddd")
+                    print("updatewdddddd")
+                    print("updatewdddddd")
+                    print("updatewdddddd")
+                    print("updatewdddddd")
+                    print("updatewdddddd")
+                    }
+                })
                 
             })
             
@@ -110,6 +143,18 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
     func fetchUserData(){
         let currentUserRef = ref.child("users").queryOrdered(byChild: "email")
             .queryEqual(toValue: user?.email).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                    print(rest.key)
+                    self.currentUserDataSnapshot = rest
+                    print("benmark")
+                    print(self.currentUserDataSnapshot)
+                    print("benmark")
+                }
+                
+                
+                
+                
                 if let value = snapshot.value as? NSDictionary{
                     let thisUserObject = value.allValues.first as! NSDictionary
                     if let userType = thisUserObject["user_type"]{
@@ -138,6 +183,12 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
 //                    
                     if let fullName = thisUserObject["full_name"]{
                         self.jobsLabel.text = fullName as! String
+                    }
+                    
+                    if let finishedOnaroding = thisUserObject["onboardingcomplete"]{
+                        if(finishedOnaroding as! Bool){
+                        self.finishedOnbaording = true
+                        }
                     }
                     
 //                    if let phoneNum = thisUserObject["phone_number"]{

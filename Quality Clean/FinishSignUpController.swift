@@ -57,6 +57,12 @@ class FinishSignUpController: FormViewController {
         let section1 = FormSectionDescriptor(headerTitle: "Just a few more details...", footerTitle: nil)
         
         
+        var row1 = FormRowDescriptor(tag: Static.button, type: .button, title: "Choose Profile Picture")
+        row1.configuration.button.didSelectClosure = { _ in
+            self.tapDetected()
+            
+        }
+        section1.rows.append(row1)
         
         fullNameRow.configuration.cell.showsInputToolbar = true
         section1.rows.append(fullNameRow)
@@ -69,13 +75,6 @@ class FinishSignUpController: FormViewController {
         
         phoneNumberRow.configuration.cell.showsInputToolbar = true
         section1.rows.append(phoneNumberRow)
-        
-        var row1 = FormRowDescriptor(tag: Static.button, type: .button, title: "Choose Profile Picture")
-        row1.configuration.button.didSelectClosure = { _ in
-            self.tapDetected()
-            
-        }
-        section1.rows.append(row1)
 
         
         let section8 = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
@@ -96,6 +95,7 @@ class FinishSignUpController: FormViewController {
 
         userRef.child("email").setValue(user?.email)
         userRef.child("user_type").setValue("cleaner")
+        userRef.child("onboardingcomplete").setValue(false)
 
         
         if let dateVal = self.cleanDateRow.value{
@@ -131,7 +131,12 @@ class FinishSignUpController: FormViewController {
                 
                 
                 if(self.profilePictureUplaoded){
-                    self.present(BaseNavViewController(), animated: true, completion: nil)
+                    self.dismiss(animated: true, completion: { 
+                        print("dismised")
+                    })
+                    //benmark
+//                    
+//                    self.present(BaseNavViewController(), animated: true, completion: nil)
                 }else{
                     self.profilePicError()
                 }
