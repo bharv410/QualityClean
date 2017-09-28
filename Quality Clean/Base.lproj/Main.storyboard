@@ -158,6 +158,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="tgt-wh-ldD"/>
                     <connections>
+                        <outlet property="directDepositButton" destination="HWv-MG-59e" id="jTY-n0-ztR"/>
                         <outlet property="emailLabel" destination="he2-64-IvN" id="9vX-sv-nmE"/>
                         <outlet property="jobsLabel" destination="OWX-fC-TQs" id="ijz-w2-t3G"/>
                         <outlet property="onboardingButton" destination="F5h-AR-rLN" id="gvD-ko-TRh"/>
@@ -706,7 +707,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="127" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M28-gL-3df">
-                                <rect key="frame" x="0.0" y="276" width="375" height="371"/>
+                                <rect key="frame" x="0.0" y="276" width="375" height="342"/>
                                 <color key="backgroundColor" red="0.17894607779999999" green="0.84956628079999996" blue="0.79015356299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.17894607779999999" green="0.84956628079999996" blue="0.79015356299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -782,7 +783,7 @@
                             <constraint firstItem="3sE-Eq-B8f" firstAttribute="top" secondItem="vf6-aZ-Ky9" secondAttribute="bottom" constant="29" id="pgg-u1-0L8"/>
                             <constraint firstItem="56S-xm-IPe" firstAttribute="centerX" secondItem="3sE-Eq-B8f" secondAttribute="centerX" id="qhF-jL-G3w"/>
                             <constraint firstItem="M28-gL-3df" firstAttribute="top" secondItem="56S-xm-IPe" secondAttribute="bottom" constant="8" id="rmm-YA-dKz"/>
-                            <constraint firstItem="IZb-Po-Ahk" firstAttribute="top" secondItem="M28-gL-3df" secondAttribute="bottom" constant="-29" id="sR0-Bv-Vo9"/>
+                            <constraint firstItem="IZb-Po-Ahk" firstAttribute="top" secondItem="M28-gL-3df" secondAttribute="bottom" id="sR0-Bv-Vo9"/>
                             <constraint firstAttribute="trailing" secondItem="M28-gL-3df" secondAttribute="trailing" id="tt2-83-BaZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3sE-Eq-B8f" secondAttribute="trailing" constant="50" id="zOk-o6-NW4"/>
                         </constraints>
@@ -796,7 +797,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9QP-Y4-Q1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1726" y="1863"/>
+            <point key="canvasLocation" x="1725.5999999999999" y="1862.5187406296852"/>
         </scene>
         <!--Upcoming-->
         <scene sceneID="3qJ-GZ-bjP">

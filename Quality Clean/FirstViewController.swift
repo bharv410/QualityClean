@@ -17,6 +17,7 @@ import Stripe
 
 class FirstViewController: UIViewController, SMFeedbackDelegate {
     
+    @IBOutlet weak var directDepositButton: UIButton!
     @IBOutlet weak var onboardingButton: UIButton!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet var user = Auth.auth().currentUser
@@ -47,6 +48,7 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
         fetchUserData()
         setupImageView()
         self.navigationItem.title = "My Profile"
+        
 
     }
     
@@ -103,7 +105,6 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
             })
             floaty.close()
         })
-        
         self.view.addSubview(floaty)
     }
     func setupImageView(){
@@ -210,15 +211,24 @@ class FirstViewController: UIViewController, SMFeedbackDelegate {
             
             if(!tbc.isCleaner){
                 addFloaty()
+                onboardingButton.isHidden = true
+                directDepositButton.isHidden = true
             }
 //            if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
 //                tabBarItem.isEnabled = false
 //            }
             
-            
+        if(tbc.isCleaner){
             if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
                 tabBarItem.title = "Unaccepted"
             }
+        }else{
+            if  let arrayOfTabBarItems = self.tabBarController?.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
+                tabBarItem.title = "Upcoming"
+            }
+        }
+        
+        
             
 //            if(!self.hasVid){
 //                self.vidViewHolder.isHidden = true

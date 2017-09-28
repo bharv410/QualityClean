@@ -18,6 +18,7 @@ class BookingsViewControllerTableViewController: UITableViewController, UIEmptyS
     var ref: DatabaseReference!
     @IBOutlet var user = Auth.auth().currentUser
     var tbc = GlobalTabBarViewController()
+    let floaty = Floaty()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,13 @@ class BookingsViewControllerTableViewController: UITableViewController, UIEmptyS
 
         // Optionally remove seperator lines from empty cells
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+//        self.edgesForExtendedLayout = UIRectEdge.all
+//        self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, CGRectGetHeight((self.navigationController?.tabBarController?.tabBar.frame)!), 0.0)
+        
+        let tabBarHeight = CGFloat(49)
+        edgesForExtendedLayout = UIRectEdge.all
+        tableView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: tabBarHeight, right: 0.0)
+        
         tbc = self.tabBarController as! GlobalTabBarViewController
         ref = Database.database().reference()
         
@@ -34,10 +42,13 @@ class BookingsViewControllerTableViewController: UITableViewController, UIEmptyS
             addFloaty()
         }
         self.navigationItem.title = "History"
+        
+        self.emptyStateView?.frame = CGRect(0 , 0, self.emptyStateView.frame.width, self.emptyStateView.frame.height - 59)
 
     }
     
     var emptyStateImage: UIImage? {
+        floaty.removeFromSuperview()
         return UIImage(named: "wash.png")
     }
     
@@ -54,11 +65,11 @@ class BookingsViewControllerTableViewController: UITableViewController, UIEmptyS
     
     func emptyStatebuttonWasTapped(button: UIButton) {
         // Add a pokemon
+        
     }
     
     
     func addFloaty(){
-        let floaty = Floaty()
         floaty.buttonColor = UIColor.white
         floaty.plusColor = UIColor(red: 46.0/255.0, green: 217.0/255.0, blue: 201.0/255.0, alpha: 1)
         floaty.addItem("Request A Cleaner", icon: UIImage(named: "icon")!, handler: { item in
@@ -68,7 +79,7 @@ class BookingsViewControllerTableViewController: UITableViewController, UIEmptyS
             self.present(vc, animated: true, completion: {
                 
             })
-            floaty.close()
+            self.floaty.close()
         })
         self.view.addSubview(floaty)
     }
