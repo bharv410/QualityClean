@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import BraintreeDropIn
+import Braintree
 
 class BookingDetailViewController: UIViewController {
 
@@ -19,7 +21,7 @@ class BookingDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        showDropIn(clientTokenOrTokenizationKey: "sandbox_7txy8nqb_n9fmqrv887fsjdvv")
         
         if(!shouldShowClaimButton){
             claimButton.isHidden = true
@@ -30,6 +32,26 @@ class BookingDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func showDropIn(clientTokenOrTokenizationKey: String) {
+        let request =  BTDropInRequest()
+        let dropIn = BTDropInController(authorization: clientTokenOrTokenizationKey, request: request)
+        { (controller, result, error) in
+            if (error != nil) {
+                print("ERROR")
+            } else if (result?.isCancelled == true) {
+                print("CANCELLED")
+            } else if let result = result {
+                // Use the BTDropInResult properties to update your UI
+                let selectedPaymentOptionType = result.paymentOptionType
+                let selectedPaymentMethod = result.paymentMethod
+                let selectedPaymentMethodIcon = result.paymentIcon
+                let selectedPaymentMethodDescription = result.paymentDescription
+            }
+            controller.dismiss(animated: true, completion: nil)
+        }
+        self.present(dropIn!, animated: true, completion: nil)
     }
     
 
